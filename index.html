@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StyleSync</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <span class="logo-icon">✨</span>
+      <span class="logo-text">StyleSync</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#" class="nav-item home-button"><span class="icon">🏠</span>Home</a></li>
+      <li><a href="#" class="nav-item closet-button">My Closet</a></li>
+      <li><a href="#" class="nav-item upload-button"><span class="icon">⬆️</span>Upload</a></li>
+      <li><a href="#" class="nav-item ai-button"><span class="icon">⚙️</span>AI Recommendations</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="#" class="btn signin">Sign In</a>
+      <a href="#" class="btn profile-button"><span class="icon">👤</span>Profile</a>
+      <a href="#" class="btn logout"><span class="icon">➡️</span>Logout</a>
+    </div>
+  </nav>
+
+  <!-- Dashboard/Home Section -->
+  <section id="dashboard-view" class="app-screen active">
+ <header class="dashboard-header">
+  <div class="dashboard-left-content">
+    <div class="welcome-text">
+      <h1>Welcome back, <span class="user-name">StyleSync User</span>! ✨</h1>
+      <p>Ready to discover your perfect style?</p>
+    </div>
+
+    <div class="todays-picks">
+      <h2>🔥 Today's Picks</h2>
+      <div class="pick-cards-container">
+        <div class="pick-card">
+          <img src="C:\Users\HP\OneDrive\画像\Screenshots\Screenshot 2025-10-17 120534.png" alt="Jacket" />
+          <p><strong>Classic Denim Jacket</strong></p>
+        </div>
+        <div class="pick-card">
+          <img src="C:\Users\HP\OneDrive\画像\Screenshots\Screenshot 2025-10-17 130928.png" alt="Boots" />
+          <p><strong>Sleek Ankle Boots</strong></p>
+        </div>
+        <div class="pick-card">
+          <img src="C:\Users\HP\OneDrive\画像\Screenshots\Screenshot 2025-10-17 131229.png" alt="Bag" />
+          <p><strong>Chic Shoulder Bag</strong></p>
+        </div>
+      </div>
+     <a href="#" class="btn ai-action plan-event view-all-btn"> EXPLORE MY AI Recommendations</a>
+    </div>
+  </div>
+
+  <!-- ✅ Right side video -->
+  <div class="welcome-media">
+    <div class="header-media">
+      <video autoplay muted loop class="header-video">
+        <!-- ⚠️ Use a relative path or URL — NOT a C:\ path -->
+        <source src="C:\Users\HP\Downloads\Brown New Arrival Fashion Facebook Post.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</header>
+
+
+
+
+    <section class="stats">
+      <div class="card">120<br><span>Items in Closet</span></div>
+      <div class="card">45<br><span>Outfits Created</span></div>
+      <div class="card">28<br><span>Events Saved</span></div>
+    </section>
+   <section class="actions">
+    <div class="action-card">
+        <div class="icon-container">
+            <span class="action-icon">☁️</span> </div>
+        <h3>Upload New Clothes</h3>
+        <p>Add items to your virtual closet</p>
+        <a href="#" class="btn upload-action">Start Uploading</a>
+    </div>
+    <div class="action-card">
+        <div class="icon-container">
+            <span class="action-icon">👕👚</span> </div>
+        <h3>View My Closet</h3>
+        <p>Browse your uploaded items</p>
+        <a href="#" class="btn closet-action">Open Closet</a>
+    </div>
+    <div class="action-card">
+        <div class="icon-container">
+            <span class="action-icon">📅</span> </div>
+        <h3>Create Event</h3>
+        <p>Plan style for upcoming occasions</p>
+        <a href="#" class="btn plan-event">Plan Event</a>
+    </div>
+    <div class="action-card">
+        <div class="icon-container">
+            <span class="action-icon">🧠</span> </div>
+        <h3>Get AI Recommendations</h3>
+        <p>Discover perfect outfit combinations</p>
+        <a href="#" class="btn ai-action">Style Me</a>
+    </div>
+</section>
+    <footer>
+      <h4>🧠 Today's Style Tip</h4>
+      <p>“Layering is your best friend—try a denim jacket over a hoodie for casual cool.”</p>
+    </footer>
+  </section>
+
+  <!-- Upload New Item Section -->
+  <section id="upload-view" class="app-screen" style="display: none;">
+  <h2>Add New Item</h2>
+  <p>Upload a new piece to your virtual closet</p>
+
+  <div class="upload-container">
+    <!-- Left Section: Item Details -->
+    <div class="item-details">
+      <h3>Item Details</h3>
+      <p>Fill in the information about your clothing item</p>
+
+      <form id="upload-form">
+        <!-- Item Photo -->
+        <label for="file-input">Item Photo</label>
+        <div class="photo-upload-container">
+          <div id="image-preview" class="preview-box">
+            <span class="upload-icon">⬆️</span>
+            <span class="placeholder-text">Choose a photo<br>PNG, JPG up to 10MB</span>
+          </div>
+
+          <input 
+            type="file" 
+            id="file-input" 
+            name="itemPhoto" 
+            accept="image/*" 
+            style="display: none;" 
+            required
+          >
+
+          <div class="upload-buttons">
+            <button type="button" id="browse-file-btn" class="btn primary-btn">
+              Browse Files
+            </button>
+            <button type="button" id="camera-btn" class="btn secondary-btn">
+              Camera
+            </button>
+          </div>
+
+          <div id="file-info-display" class="file-info"></div>
+        </div>
+
+        <!-- Item Type -->
+        <div class="item-selection-row">
+  <div class="item-type-field">
+    <label for="item-type-select">Item Type</label>
+    <select id="item-type-select" required>
+      <option value="" disabled selected>Select item type</option>
+      <option value="shirt">Shirt</option>
+      <option value="dress">Dress</option>
+      <option value="jeans">Jeans</option>
+      <option value="jacket">Jacket</option>
+    </select>
+  </div>
+
+  <div class="primary-color-field">
+    <label for="primary-color-select">Primary Color</label>
+    <select id="primary-color-select" required>
+      <option value="" disabled selected>Select primary color</option>
+      <option value="blue">Blue</option>
+      <option value="pink">Pink</option>
+      <option value="dark-blue">Dark Blue</option>
+      <option value="brown">Brown</option>
+    </select>
+  </div>
+</div>
+
+
+        <!-- Submit Button -->
+       <button 
+    type="button" 
+    id="add-to-closet-btn" 
+    class="add-to-closet" 
+    disabled
+>
+    Add to Closet
+</button>
+
+      </form>
+    </div>
+
+    <!-- Right Section: Photo Tips -->
+    <div class="photo-tips">
+      <h3>📷 Photo Tips</h3>
+      <p>Get the best results with these tips:</p>
+      <ul>
+        <li>Use good lighting for clear photos</li>
+        <li>Show the full item if possible</li>
+        <li>Avoid cluttered backgrounds</li>
+        <li>Take photos from the front for best results</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+  <!-- My Closet Section -->
+  <section id="closet-view" class="app-screen" style="display:none;">
+    <h2>My Virtual Closet</h2>
+    <p>Manage and organize your wardrobe</p>
+    <div class="closet-stats">
+      <div>
+        <span style="font-size:2rem;font-weight:bold;">4</span><br>Total Items
+      </div>
+      <div>
+        <span style="font-size:2rem;font-weight:bold;">4</span><br>Categories
+      </div>
+      <div>
+        <span style="font-size:2rem;font-weight:bold;">12</span><br>Recent Uploads
+      </div>
+    </div>
+    <div class="closet-items">
+  
+  <!-- Add New Item Card -->
+  <div class="add-item-card">
+    <span style="font-size: 3rem; color: #ff6b81;">+</span>
+    <div>Add New Item<br><small>Upload clothes</small></div>
+  </div>
+
+  <!-- Closet Items -->
+  <div class="item-card" data-category="tops">
+    <img src= alt="Shirt" />
+    <div>Shirt<br><span>Blue</span></div>
+  </div>
+
+  <div class="item-card" data-category="tops">
+    <img src="D:\beauty website\images\Screenshot 2025-10-18 145009.png"alt="top" />
+    <div>Top<br><span>Pink</span></div>
+  </div>
+
+  <div class="item-card" data-category="tops">
+    <img src="C:\Users\HP\OneDrive\画像\Screenshots\Screenshot 2025-10-18 144827.png" alt="Jeans" />
+    <div>Top<br><span>Lime Yellow</span></div>
+  </div>
+
+  <div class="item-card" data-category="bottoms">
+    <img src="C:\Users\HP\OneDrive\画像\Screenshots\Screenshot 2025-10-19 003759.png" alt="bottom" />
+    <div>jeans<br><span>blue</span></div>
+  </div>
+  <div class="item-card" data-category="bottoms">
+    <img src="C:\Users\HP\OneDrive\画像\Screenshots\Screenshot 2025-10-19 003823.png" alt="bottom" />
+    <div>jeans<br><span>blue</span></div>
+  </div>
+<div class="item-card" data-category="bottoms">
+    <img src="C:\Users\HP\OneDrive\画像\Screenshots\Screenshot 2025-10-19 003823.png" alt="bottom" />
+    <div>jeans <br><span>blue </span></div>
+  </div>
+  <div class="item-card" data-category="bottoms">
+    <img src="C:\Users\HP\OneDrive\画像\Screenshots\Screenshot 2025-10-19 004209.png" alt="bottom" />
+    <div> beachy skirt <br><span>pink </span></div>
+  </div>
+  <div class="item-card" data-category="bottoms">
+    <img src="C:\Users\HP\OneDrive\画像\Screenshots\Screenshot 2025-10-19 004342.png" alt="bottom" />
+    <div> skirt midi<br><span>blue </span></div>
+  </div>
+  <div class="item-card" data-category="bottoms">
+    <img src="C:\Users\HP\OneDrive\画像\Screenshots\Screenshot 2025-10-19 004307.png" alt="bottom" />
+    <div>leather skirt mini<br><span>black </span></div>
+  </div>
+
+  <div class="item-card" data-category="outerwear">
+    <img src="C:\Users\HP\OneDrive\画像\Screenshots\Screenshot 2025-10-17 120534.png" alt="Jacket" />
+    <div>Jacket<br><span>Brown</span></div>
+  </div>
+
+  <div class="item-card" data-category="tops">
+    <img src="C:\Users\HP\OneDrive\画像\Screenshots\Screenshot 2025-10-17 120534.png" alt="Jacket" />
+    <div>Jacket<br><span>Brown</span></div>
+  </div>
+
+  <div class="item-card" data-category="tops">
+    <img src="C:\Users\HP\OneDrive\画像\Screenshots\Screenshot 2025-10-17 120534.png" alt="Jacket" />
+    <div>Jacket<br><span>Brown</span></div>
+  </div>
+
+  <div class="item-card" data-category="bottoms">
+    <img src="C:\Users\HP\OneDrive\画像\Screenshots\Screenshot 2025-10-17 120534.png" alt="Jacket" />
+    <div>Jacket<br><span>Brown</span></div>
+  </div>
+
+  <div class="item-card" data-category="accessories">
+    <img src="C:\Users\HP\OneDrive\画像\Screenshots\Screenshot 2025-10-17 120534.png" alt="Jacket" />
+    <div>Jacket<br><span>Brown</span></div>
+  </div>
+
+  <div class="item-card" data-category="shoes">
+    <img src="C:\Users\HP\OneDrive\画像\Screenshots\Screenshot 2025-10-17 120534.png" alt="Jacket" />
+    <div>Jacket<br><span>Brown</span></div>
+  </div>
+
+</div>
+
+    <div class="category-filter">
+ <button class="filter-btn active" data-filter="all">All</button>
+<button class="filter-btn" data-filter="tops">Tops</button>
+ <button class="filter-btn" data-filter="bottoms">Bottoms</button>
+ <button class="filter-btn" data-filter="dresses">Dresses</button>
+  <button class="filter-btn" data-filter="outerwear">Outerwear</button>
+ <button class="filter-btn" data-filter="accessories">Accessories</button>
+ <button class="filter-btn" data-filter="shoes">Shoes</button>
+</div>
+  </section>
+
+  <!-- AI Recommendations Section -->
+ <section id="ai-view" class="app-screen" style="display:none;">
+    <h2>AI Recommendations</h2>
+    <p>Discover your perfect style combinations</p>
+    <div class="ai-recommend-container">
+        <div class="ai-main">
+            <h3 class="outfit-title" style="color:#ff6b81;">Casual Chic <span class="match-percent">95% Match</span></h3>
+            <p style="margin-top: -0.5rem; color: #555;">Perfect for weekend brunch or casual meetings</p>
+
+            <div class="ai-outfit-row">
+                <div class="ai-outfit-card">
+                    <img src="C:\Users\HP\OneDrive\画像\Screenshots\Screenshot 2025-10-20 004510.png" alt="Top" /> 
+                    <div>Top<br><span>Blue</span></div>
+                </div>
+                <div class="ai-outfit-card">
+                    <img src="C:\Users\HP\OneDrive\画像\Screenshots\Screenshot 2025-10-20 004119.png" alt="Bottom" />
+                    <div>Bottom<br><span>Dark Jeans</span></div>
+                </div>
+            </div>
+            
+                  
+            <div class="ai-actions-row-bottom">
+                <button class="btn pass-btn">Pass</button>
+                <button class="btn love-btn">Love It</button>
+            </div>
+        </div>
+
+        <div class="ai-side">
+            <h4>Your Decision</h4>
+            <button class="btn side-love-btn">Love It</button>
+            <button class="btn side-pass-btn">Pass</button>
+            <button class="btn side-share-btn">Share</button>
+            <button class="btn next-btn-side">Next Suggestion</button>
+            
+            <div class="style-tip">
+                <strong>💡 Style Tip</strong>
+                <p>This combination works great because the colors complement each other and the formality levels match perfectly!</p>
+            </div>
+        </div>
+    </div>
+</section>
+  </section>
+<section id="signin-view" class="app-screen" style="display: none;">
+  <div class="auth-card" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+    <button class="auth-close" aria-label="Close auth dialog">&times;</button>
+
+    <div class="auth-tabs">
+      <button id="signin-tab" class="tab-btn active" type="button">Sign In</button>
+      <button id="signup-tab" class="tab-btn" type="button">Sign Up</button>
+    </div>
+
+    <form id="signin-form" class="auth-form">
+      <h2 id="auth-title" style="margin-top:0;">Welcome Back</h2>
+      <p>Login to access your virtual closet.</p>
+
+      <label for="login-email">Email Address</label>
+      <input type="email" id="login-email" required placeholder="name@stylesync.com">
+
+      <label for="login-password">Password</label>
+      <input type="password" id="login-password" required placeholder="••••••••">
+
+      <button type="submit" class="btn signin full-width">Sign In</button>
+      <a href="#" class="forgot-password" style="display:block; text-align:center; margin-top:0.6rem;">Forgot Password?</a>
+    </form>
+
+    <form id="signup-form" class="auth-form" style="display: none;">
+      <h2 style="margin-top:0;">Create Account</h2>
+      <p>Start styling your wardrobe in seconds!</p>
+
+      <label for="signup-name">Name</label>
+      <input type="text" id="signup-name" required placeholder="Your Name">
+
+      <label for="signup-email">Email Address</label>
+      <input type="email" id="signup-email" required placeholder="name@stylesync.com">
+
+      <label for="signup-password">Password</label>
+      <input type="password" id="signup-password" required placeholder="Create a password">
+
+      <button type="submit" class="btn signin full-width">Sign Up</button>
+    </form>
+  </div>
+</section>
+  <!-- About Us -->
+<section class="about-section marketing-content">
+  <div class="about-card">
+    <div class="about-left">
+      <div class="about-icon" aria-hidden="true">💡</div>
+      <h3 class="brand">StyleSync</h3>
+      <p class="subtitle">Outfit Recommendation AI</p>
+
+      <a href="mailto:hello@stylesync.example" class="btn about-email">Email us</a>
+
+      <div class="socials" aria-label="Social links">
+        <a href="#" class="social">Instagram</a>
+        <a href="#" class="social">Twitter</a>
+        <a href="#" class="social">Facebook</a>
+        <a href="#" class="social">LinkedIn</a>
+      </div>
+    </div>
+
+    <div class="about-right">
+      <h2>About Us</h2>
+      <p class="about-text">
+        StyleSync is your personal AI-powered outfit recommendation platform. We combine cutting-edge artificial intelligence with curated fashion expertise to help you discover new styles, organize your closet, and perfect outfits for any occasion. Our mission is to make fashion effortless, accessible, and enjoyable for everyone — right from your pocket.
+      </p>
+
+      <div class="about-ctas">
+        <button class="btn view-features">View Features</button>
+        <button class="btn meet-team">Meet the Team</button>
+      </div>
+    </div>
+  </div>
+</section> 
+  <!--how it works  -->
+  <section class="how-it-works-box marketing-content" aria-labelledby="how-title">
+  <div class="how-inner">
+    <h2 id="how-title">How It Works <span class="how-star">★</span></h2>
+
+    <div class="how-row">
+      <article class="how-card">
+        <div class="how-icon" aria-hidden="true">
+          <!-- upload svg -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3v10" stroke="#4a2b20" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 7l4-4 4 4" stroke="#4a2b20" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M21 15v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3" stroke="#4a2b20" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3>Upload</h3>
+        <p>Add clothes to your closet</p>
+      </article>
+
+      <article class="how-card">
+        <div class="how-icon">
+          <!-- organize svg -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="4" width="7" height="7" rx="1.5" stroke="#4a2b20" stroke-width="1.6"/>
+            <rect x="14" y="4" width="7" height="7" rx="1.5" stroke="#4a2b20" stroke-width="1.6"/>
+            <rect x="3" y="14" width="7" height="6" rx="1.5" stroke="#4a2b20" stroke-width="1.6"/>
+            <rect x="14" y="14" width="7" height="6" rx="1.5" stroke="#4a2b20" stroke-width="1.6"/>
+          </svg>
+        </div>
+        <h3>Organize</h3>
+        <p>Categorize by type & color</p>
+      </article>
+
+      <article class="how-card">
+        <div class="how-icon">
+          <!-- get styled svg -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 20l16-8-8-8-8 16z" stroke="#4a2b20" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14 6l4 4" stroke="#4a2b20" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Get Styled</h3>
+        <p>Receive AI outfit recommendations</p>
+      </article>
+
+      <article class="how-card">
+        <div class="how-icon">
+          <!-- look amazing svg -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2c2.5 3 5 3 6 3s2 1 2 4-1 5-3 6-4 2-7 2-5-1-6-3-2-4-1-6 3-6 9-6z" stroke="#4a2b20" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3>Look Amazing</h3>
+        <p>Plan outfits for any event</p>
+      </article>
+    </div>
+  </div>
+</section>  
+  </div>
+</section>
+<section class="reviews-container">
+    <h2 class="reviews-title">What Our Users Say <span class="star">★</span></h2>
+    
+    <div class="reviews-grid">
+        <!-- Review Card 1 -->
+        <div class="review-card">
+            <div class="review-content">
+                <div class="quote-mark">❝</div>
+                <p>Love how easy it is to mix and match outfits! The AI suggestions are spot on.</p>
+                <div class="reviewer">
+                    <div class="reviewer-pic">S</div>
+                    <div class="reviewer-info">
+                        <h4>Sarah M.</h4>
+                        <span>Fashion Blogger</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Review Card 2 -->
+        <div class="review-card">
+            <div class="review-content">
+                <div class="quote-mark">❝</div>
+                <p>Finally organized my closet digitally. Makes planning outfits so much easier!</p>
+                <div class="reviewer">
+                    <div class="reviewer-pic">A</div>
+                    <div class="reviewer-info">
+                        <h4>Alex K.</h4>
+                        <span>Professional</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Review Card 3 -->
+        <div class="review-card">
+            <div class="review-content">
+                <div class="quote-mark">❝</div>
+                <p>The style recommendations are perfect for my taste. Saved me so much time!</p>
+                <div class="reviewer">
+                    <div class="reviewer-pic">R</div>
+                    <div class="reviewer-info">
+                        <h4>Rachel T.</h4>
+                        <span>Artist</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+    // --- Closet Mock Data (Dynamic demo items) ---
+    const MOCK_CLOSET_ITEMS = [
+        { id: 1, name: 'Blue Shirt', category: 'Tops', color: 'Blue', img: 'path/to/shirt1.jpg' },
+        { id: 2, name: 'Red Dress', category: 'Dresses', color: 'Red', img: 'path/to/dress1.jpg' },
+        { id: 3, name: 'Black Jeans', category: 'Bottoms', color: 'Black', img: 'path/to/jeans1.jpg' },
+        { id: 4, name: 'White Tee', category: 'Tops', color: 'White', img: 'path/to/tee1.jpg' },
+        { id: 5, name: 'Leather Belt', category: 'Accessories', color: 'Brown', img: 'path/to/belt1.jpg' },
+        { id: 6, name: 'Rain Coat', category: 'Outerwear', color: 'Yellow', img: 'path/to/coat1.jpg' },
+        { id: 7, name: 'Sneakers', category: 'Shoes', color: 'White', img: 'path/to/shoes1.jpg' },
+    ];
+
+    // ===========================================
+    // --- 0. VARIABLE DECLARATIONS (CONSOLIDATED) ---
+    // ===========================================
+    const browseFileBtn = document.getElementById('browse-file-btn');
+    const cameraBtn = document.getElementById('camera-btn');
+    const fileInput = document.getElementById('file-input');
+    const imagePreview = document.getElementById('image-preview');
+    const addToClosetBtn = document.getElementById('add-to-closet-btn');
+    const uploadForm = document.querySelector('#upload-view form');
+    const fileInfoDisplay = document.getElementById('file-info-display');
+    
+    // Closet DOM Elements
+    const closetItemsContainer = document.querySelector('.closet-items');
+    const filterButtons = document.querySelectorAll('.category-filter .filter-btn'); 
+
+    // Auth DOM Elements (Re-added from your previous complete code)
+    const signInForm = document.getElementById('signin-form');
+    const signUpForm = document.getElementById('signup-form');
+    const signInTabBtn = document.getElementById('signin-tab');
+    const signUpTabBtn = document.getElementById('signup-tab');
+    const logoutBtn = document.querySelector('.btn.logout'); 
+    const profileBtn = document.querySelector('.btn.profile-button');
+    const navSignInBtn = document.getElementById('nav-signin-btn'); 
+    const authOverlay = document.getElementById('signin-view'); // Added for auth modal logic
+    const authCloseBtn = document.querySelector('.auth-close'); // Added for auth modal logic
+
+    // Review Carousel DOM Elements (NEW)
+    const wrapper = document.querySelector('.reviews-wrapper');
+    const slides = document.querySelectorAll('.review-slide');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+
+    // --- GLOBAL STATE --- 
+    let isLoggedIn = false; // Mock Authentication State
+
+
+    // =========================================
+    // --- 1. VIEW SWITCHING LOGIC (UPDATED with AUTH check) ---
+    // =========================================
+    function switchView(viewId) {
+        document.querySelectorAll('.app-screen').forEach(s => {
+            s.style.display = 'none';
+            s.classList.remove('active');
+        });
+
+        // 🛑 AUTH CHECK: If not logged in, force redirect to sign-in page 🛑
+        const protectedViews = ['closet-view', 'upload-view', 'ai-view'];
+        if (!isLoggedIn && protectedViews.includes(viewId)) {
+            viewId = 'signin-view';
+        }
+        // 🛑 END AUTH CHECK 🛑
+
+        const targetView = document.getElementById(viewId);
+        if (targetView) {
+            targetView.style.display = (viewId === 'signin-view' ? 'flex' : 'block');
+            targetView.classList.add('active');
+        }
+
+        // Handle navbar active state
+        document.querySelectorAll('.nav-links li a').forEach(l => l.classList.remove('active'));
+        const buttonClass = viewId.replace('-view', '');
+        const activeLink = document.querySelector(`.${buttonClass}-button`) || document.querySelector('.home-button');
+        if (activeLink) {
+            activeLink.classList.add('active');
+        }
+
+        // Render closet when switching to closet view
+        if (viewId === 'closet-view') {
+            const allFilter = document.querySelector('.filter-btn[data-filter="all"]');
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            if (allFilter) allFilter.classList.add('active');
+            renderCloset('All');
+        }
+    }
+    
+    // --- Initial View Switch (Crucial for running updateAuthUI later) ---
+    // Note: Do not call switchView('dashboard-view') directly here, let updateAuthUI handle the initial view
+    
+
+    // --- 2. NAVBAR & DASHBOARD BUTTON HANDLERS (consolidated) ---
+    const navButtonMappings = [
+        { selector: '.home-button', view: 'dashboard-view' },
+        { selector: '.closet-button', view: 'closet-view' },
+        { selector: '.upload-button', view: 'upload-view' },
+        { selector: '.ai-button', view: 'ai-view' },
+        { selector: '.upload-action', view: 'upload-view' }, 
+        { selector: '.closet-action', view: 'closet-view' }, 
+        { selector: '.ai-action', view: 'ai-view' }, 
+    ];
+
+    navButtonMappings.forEach(mapping => {
+        document.querySelectorAll(mapping.selector).forEach(btn => {
+            btn.addEventListener('click', e => {
+                e.preventDefault();
+                switchView(mapping.view);
+            });
+        });
+    });
+
+    // Handle click on the 'Add New Item' card in the closet view
+    document.querySelector('#closet-view .closet-items')?.addEventListener('click', e => {
+        if (e.target.closest('.add-item-card')) {
+             e.preventDefault();
+             switchView('upload-view');
+        }
+    });
+
+    // ===========================================
+    // --- 3. FILE UPLOAD & PREVIEW LOGIC ---
+    // ===========================================
+    browseFileBtn?.addEventListener('click', () => fileInput.click());
+
+    function resetUploadUI() {
+        imagePreview.innerHTML = `
+            <span class="upload-icon">⬆️</span>
+            <span class="placeholder-text">Choose a photo<br>PNG, JPG up to 10MB</span>
+        `;
+        imagePreview.classList.remove('has-image');
+        imagePreview.style.backgroundImage = 'none';
+        if (fileInfoDisplay) fileInfoDisplay.innerHTML = '';
+        addToClosetBtn.disabled = true;
+    }
+
+    if (fileInput && imagePreview && addToClosetBtn) {
+        fileInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file && file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    imagePreview.innerHTML = `<img src="${e.target.result}" alt="Uploaded Item" style="max-width:100%; max-height:100%; object-fit:contain;">`;
+                    imagePreview.classList.add('has-image');
+                    imagePreview.style.backgroundImage = 'none';
+
+                    if (fileInfoDisplay) {
+                        fileInfoDisplay.innerHTML = `
+                            <p style="text-align:center; margin: 0.5rem 0 0.2rem 0; font-weight: 500;">${file.name}</p>
+                            <a href="#" id="change-photo-link" style="text-align:center; display:block; color:#ff6b81; cursor:pointer; font-size:0.9em;">Change photo</a>
+                        `;
+                        document.getElementById('change-photo-link')?.addEventListener('click', (linkEvent) => {
+                            linkEvent.preventDefault();
+                            fileInput.click();
+                        });
+                    }
+                    addToClosetBtn.disabled = false;
+                };
+                reader.readAsDataURL(file);
+            } else {
+                resetUploadUI();
+            }
+        });
+    }
+
+    cameraBtn?.addEventListener('click', () => alert("Camera feature not yet implemented."));
+
+    // --- 4. Add to Closet Logic ---
+    if (uploadForm && addToClosetBtn) {
+        uploadForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (addToClosetBtn.disabled) return;
+
+            const itemType = uploadForm.querySelector('#item-type-select').value;
+            alert(`✅ Success! Item "${itemType}" is ready to be added.`);
+
+            uploadForm.reset();
+            resetUploadUI();
+            switchView('closet-view');
+        });
+    }
+
+    // ===========================================
+    // --- 5. CLOSET FILTERING AND RENDERING ---
+    // ===========================================
+    function renderCloset(filterCategory) {
+        if (!closetItemsContainer) return;
+
+        let html = `
+            <div class="add-item-card">
+                <span style="font-size: 2rem;">➕</span>
+                <p style="margin: 0; font-weight: 600;">Add New Item</p>
+            </div>
+        `;
+        
+        const filterKey = filterCategory === 'All' ? 'All' : filterCategory.charAt(0).toUpperCase() + filterCategory.slice(1).toLowerCase().replace(/s$/, '');
+        
+        const filtered = filterCategory === 'All'
+            ? MOCK_CLOSET_ITEMS
+            : MOCK_CLOSET_ITEMS.filter(item => item.category === filterKey);
+
+        filtered.forEach(item => {
+            html += `
+                <div class="item-card">
+                    <img src="https://via.placeholder.com/100/${item.color.toLowerCase().replace(' ', '')}/FFFFFF/?text=${item.category[0] + item.id}" alt="${item.name}">
+                    <p style="margin: 0.5rem 0 0.2rem 0; font-weight: 500;">${item.name}</p>
+                    <span style="font-size: 0.8rem; color: #888;">${item.category}</span>
+                </div>
+            `;
+        });
+
+        closetItemsContainer.innerHTML = html;
+
+        // Listener for the new 'Add New Item' card needs to be re-attached
+        document.querySelector('.add-item-card')?.addEventListener('click', e => {
+            e.preventDefault();
+            switchView('upload-view');
+        });
+    }
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const category = this.getAttribute('data-filter');
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+
+            const categoryToFilter = category.charAt(0).toUpperCase() + category.slice(1);
+            renderCloset(categoryToFilter);
+        });
+    });
+    
+    // ===============================================
+    // --- 6. AUTHENTICATION & STATE MANAGEMENT ---
+    // ===============================================
+
+    function switchAuthTab(tabId) {
+        if (!signInForm || !signUpForm) return;
+
+        if (tabId === 'login') {
+            signInForm.style.display = 'block';
+            signUpForm.style.display = 'none';
+            signInTabBtn?.classList.add('active');
+            signUpTabBtn?.classList.remove('active');
+        } else {
+            signInForm.style.display = 'none';
+            signUpForm.style.display = 'block';
+            signInTabBtn?.classList.remove('active');
+            signUpTabBtn?.classList.add('active');
+        }
+    }
+
+    function updateAuthUI() {
+        if (profileBtn) profileBtn.style.display = isLoggedIn ? 'flex' : 'none';
+        if (logoutBtn) logoutBtn.style.display = isLoggedIn ? 'flex' : 'none';
+        if (navSignInBtn) navSignInBtn.style.display = isLoggedIn ? 'none' : 'flex'; 
+
+        document.querySelectorAll('.nav-links li a').forEach(link => {
+            const isProtected = link.classList.contains('closet-button') || link.classList.contains('upload-button') || link.classList.contains('ai-button');
+            if (isProtected) {
+                link.parentNode.style.display = isLoggedIn ? 'list-item' : 'none';
+            }
+        });
+
+        if (!isLoggedIn) {
+            switchView('signin-view');
+            switchAuthTab('login');
+        } else {
+            const currentView = document.querySelector('.app-screen.active')?.id;
+            if (currentView === 'signin-view' || !currentView) {
+                switchView('dashboard-view');
+            }
+        }
+    }
+
+    function loginUser(e) {
+        e.preventDefault();
+        const emailInput = e.target.querySelector('input[type="email"]');
+
+        if (emailInput && emailInput.value) {
+            isLoggedIn = true;
+            const username = emailInput.value.split('@')[0];
+            document.querySelector('.user-name') && (document.querySelector('.user-name').textContent = username);
+            updateAuthUI();
+            
+            // Close the sign-in modal
+            if (authOverlay && authOverlay.style.display === 'flex') {
+                authOverlay.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+            alert(`Welcome back, ${username}!`);
+        } else {
+            alert('Please enter your email and password.');
+        }
+    }
+
+    function logoutUser(e) {
+        e.preventDefault();
+        isLoggedIn = false;
+        document.querySelector('.user-name') && (document.querySelector('.user-name').textContent = 'StyleSync User');
+        updateAuthUI();
+        alert('You have been logged out.');
+    }
+    
+    // --- Auth Event Listeners ---
+    if (signInForm) { signInForm.addEventListener('submit', loginUser); }
+    if (logoutBtn) { logoutBtn.addEventListener('click', logoutUser); }
+    if (signUpForm) {
+        signUpForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert("Sign Up successful (mock). Auto-logging you in.");
+            loginUser(e);
+        });
+    }
+    signInTabBtn?.addEventListener('click', () => switchAuthTab('login'));
+    signUpTabBtn?.addEventListener('click', () => switchAuthTab('signup'));
+
+    // Navbar Sign In button handler
+    navSignInBtn?.addEventListener('click', e => {
+        e.preventDefault();
+        switchView('signin-view');
+    });
+
+    // Close auth modal logic
+    authCloseBtn?.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (authOverlay) {
+            authOverlay.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+        if (isLoggedIn) switchView('dashboard-view'); 
+    });
+    authOverlay?.addEventListener('click', (e) => {
+        if (e.target === authOverlay) {
+            authOverlay.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    });
+
+    // ===============================================
+    // --- 7. REVIEW CAROUSEL LOGIC (NEW) ---
+    // ===============================================
+    let reviewIndex = 0; 
+    const totalReviews = slides.length;
+
+    if (wrapper && slides.length > 0) {
+        function updateReviewCarousel() {
+            // Calculate the percentage offset to move the wrapper
+            const offset = -reviewIndex * 100; 
+            wrapper.style.transform = `translateX(${offset}%)`;
+        }
+
+        nextBtn?.addEventListener('click', () => {
+            // Move to the next slide, or wrap around to the first (circular motion)
+            reviewIndex = (reviewIndex + 1) % totalReviews; 
+            updateReviewCarousel();
+        });
+
+        prevBtn?.addEventListener('click', () => {
+            // Move to the previous slide, or wrap around to the last (circular motion)
+            reviewIndex = (reviewIndex - 1 + totalReviews) % totalReviews;
+            updateReviewCarousel();
+        });
+
+        // Auto-slide the reviews every 5 seconds
+        setInterval(() => {
+            nextBtn?.click();
+        }, 5000); 
+        
+        // Ensure the initial position is correct
+        updateReviewCarousel(); 
+    }
+    
+    updateAuthUI(); 
+});
+</script>

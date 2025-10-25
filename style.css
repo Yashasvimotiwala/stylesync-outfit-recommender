@@ -1,0 +1,1866 @@
+/* ------------------------------------------- */
+/* GLOBAL AESTHETIC COLOR VARIABLES */
+/* Rich Mocha & Gold Palette (Original, but Enhanced for Dynamics) */
+/* ------------------------------------------- */
+:root {
+    --color-bg-light: #FBF7F3;
+    --color-text-dark: #4C3C3C;
+    --color-text-light: #706363;
+    --color-card-bg: #FFFFFF;
+
+    --color-primary-accent: #B8860B;
+    --color-dark-gold: #A8790A;
+
+    --color-secondary-accent: #8D6E63;
+    --color-dark-mocha: #6D4C41;
+
+    --color-light-brown: #EFEBE9;
+    --color-light-peach: #FADAD1;
+}
+
+/* Reset & Base */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background: var(--color-bg-light);
+    color: var(--color-text-dark);
+}
+
+.app-screen {
+    padding: 2rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    opacity: 0;
+    transition: opacity 0.4s ease-in; 
+    box-sizing: border-box;
+}
+.app-screen.active {
+    opacity: 1;
+}
+
+/* NAVIGATION BAR STYLING */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, var(--color-card-bg), var(--color-light-brown));
+    padding: 1rem 4rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--color-secondary-accent);
+}
+
+.logo-icon {
+    font-size: 2rem;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--color-text-light);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+    background-color: var(--color-light-brown);
+    color: var(--color-secondary-accent);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.nav-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-actions .btn {
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.2s ease-out;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(141,110,99,0.08);
+}
+
+.btn.signin {
+    background: linear-gradient(90deg, var(--color-primary-accent) 60%, #EEDDAA 100%);
+    color: white;
+    box-shadow: 0 4px 16px rgba(184,134,11,0.25);
+    border: 2px solid var(--color-primary-accent);
+    font-size: 1.05rem;
+    letter-spacing: 0.5px;
+}
+
+.btn.signin:hover, 
+.btn.signin:focus {
+    background: linear-gradient(90deg, var(--color-dark-gold) 60%, #eeaaaa85 100%);
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(168,121,10,0.3);
+    border-color: var(--color-dark-gold);
+    transform: translateY(-3px) scale(1.02);
+}
+
+.btn.logout {
+    background: var(--color-secondary-accent);
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+.btn.logout:hover {
+    background: var(--color-dark-mocha);
+}
+
+.btn.profile-button {
+    background: var(--color-card-bg);
+    color: var(--color-secondary-accent);
+    border: 2px solid var(--color-secondary-accent);
+}
+.btn.profile-button:hover {
+    background: var(--color-light-brown);
+    color: var(--color-dark-mocha);
+    border-color: var(--color-dark-mocha);
+}
+
+/* Action Buttons */
+.btn.upload-action,
+.btn.closet-action,
+.btn.ai-action,
+.btn.plan-event {
+    text-decoration: none;
+}
+.btn.plan-event {
+    background: linear-gradient(90deg, var(--color-primary-accent) 0%, var(--color-secondary-accent) 100%);
+    color: #fff;
+    font-size: 1.08rem;
+    font-weight: bold;
+    box-shadow: 0 4px 16px rgba(141,110,99,0.2);
+    border: none;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease-out;
+}
+.btn.upload-action:hover,
+
+.btn.closet-action:hover,
+.btn.ai-action:hover,
+.btn.plan-event:hover {
+    background: linear-gradient(90deg, var(--color-secondary-accent) 0%, var(--color-primary-accent) 100%);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 24px rgba(184,134,11,0.25);
+}
+
+/* Dashboard Header */
+/* Dashboard Header */
+.dashboard-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+/* Increase left content width */
+.dashboard-left-content {
+    flex: 1.7;          /* larger weight for left column */
+    min-width: 360px;   /* ensure content doesn't collapse */
+}
+
+/* Keep video column compact but wide enough to show full video */
+.welcome-media {
+    flex: 1.1;          /* smaller than left but allowed to grow */
+    min-width: 360px;   /* ensure video has enough horizontal room */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Container for media */
+.header-media {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Video: scale responsively and avoid cropping */
+.header-video {
+  width: 100%;
+  height: auto;
+  max-height: 78vh;    /* limit by viewport height so it never overflows */
+  object-fit: contain; /* crucial: preserves full video without cropping */
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  display: block;
+}
+
+/* Responsive: stack and reduce video on smaller screens */
+@media (max-width: 1100px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .dashboard-left-content { order: 1; width: 100%; }
+  .welcome-media { order: 2; width: 100%; min-width: 0; max-height: 50vh; }
+  .header-video { max-height: 50vh; }
+}
+
+/* Today's Picks Section */ 
+/* Style for the "View All" button inside Today's Picks */
+.todays-picks .view-all-btn {
+    display: inline-block;       /* ensures width:auto works */
+    margin: 2rem auto 0;         /* top margin + center horizontally */
+    width: auto;                  /* button width adapts to content */
+    text-align: center;           /* center text inside the button */
+    padding: 0.6rem 1.2rem;       /* comfortable padding */
+    border-radius: 12px;          /* rounded corners */
+    font-weight: bold;            /* bold text */
+    background: var(--color-primary-accent); /* button color */
+    color: white;                 /* text color */
+    border: none;                 /* no border */
+    cursor: pointer;              /* pointer on hover */
+    transition: all 0.3s ease;    /* smooth hover transition */
+}
+
+/* Optional: Hover effect */
+.todays-picks .view-all-btn:hover {
+    background: var(--color-dark-gold); /* darker shade on hover */
+    transform: translateY(-2px);        /* slight lift effect */
+    box-shadow: 0 4px 12px rgba(184,134,11,0.3); /* shadow */
+}
+
+.todays-picks {
+    background: var(--color-card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    
+    /* REVISED MAX-WIDTH: Give the box slightly more width */
+    max-width: 550px; 
+}
+
+.todays-picks h2 {
+    color: var(--color-secondary-accent);
+    margin-top: 0;
+    border-bottom: 2px solid var(--color-light-brown);
+    padding-bottom: 0.5rem;
+    font-size: 1.4rem;
+}
+
+.pick-cards-container {
+    display: flex;
+    /* REVISED GAP: Back to 1rem for better breathing room */
+    gap: 1rem; 
+    margin-top: 1rem;
+    /* Keep justify-content: flex-start so it doesn't spread out */
+    justify-content: flex-start; 
+    flex-wrap: wrap;
+}
+
+
+/* Pick/Closet Card Container */
+.pick-card {
+    text-align: center;
+    flex: 1.5;
+    min-width: 90px;          /* Minimum width for responsiveness */
+    max-width: 140px;         /* Matches smaller image + padding */
+    padding: 0.5rem;
+    border-radius: 8px;
+    background: var(--color-light-brown);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;      /* Center image and text */
+}
+
+/* Hover effect for the card */
+.pick-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Pick-card image styling */
+.pick-card img {
+    width: 100px;             /* Image width */
+    height: 100px;            /* Image height */
+    border-radius: 6px;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+
+.pick-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-dark);
+    margin: 0;
+}
+
+/* Dashboard Stats */
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 1rem 0;
+}
+
+/* The rest of your existing CSS continues here:
+   .card, .actions, .action-card, footer,
+   upload section, closet section, AI section, media queries
+*/
+
+/* Dashboard Stats */
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 1rem 0;
+}
+.card {
+    /* Background: Deep Mocha Gradient */
+    background: linear-gradient(135deg, #4E342E, #3E2723); 
+    
+    /* Text Color: Ensure main numbers are white */
+    color: white; 
+    
+    padding: 1rem 2.5rem;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 2.2rem;
+    box-shadow: 0 6px 15px rgba(141,110,99,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(141,110,99,0.3);
+}
+
+.card span {
+    display: block;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    
+    /* ADDED: Explicitly set sub-text color to white for clarity */
+    color: white; 
+}
+
+/* Dashboard Actions */
+/* Dashboard Actions - Keep this as is, it's good */
+.actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.action-card {
+    background: var(--color-card-bg); 
+    padding: 30px; 
+    border-radius: 15px; 
+           border: 2px solid var(--color-golden-border);
+
+    /* Keep or adjust box-shadow for depth */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* More subtle initial shadow */
+    text-align: center;
+    
+    /* Keep or adjust transition for hover effects */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.action-card:hover {
+    /* Modify the hover effect to match the image */
+    transform: translateY(-8px); /* Lift card on hover */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* More prominent shadow on hover */
+}
+
+/* Update text styles within the card */
+.action-card h3 {
+    font-family: 'Playfair Display', serif; /* Add an elegant font or use your primary heading font */
+    font-size: 1.6rem; /* Adjust font size */
+    color: var(--color-secondary-accent); /* Use your medium brown for headings */
+    margin-top: 15px; /* Adjust margin */
+    margin-bottom: 10px; /* Adjust margin */
+    font-weight: 700;
+}
+
+/* --- ADD THIS NEW BLOCK for paragraph text styling --- */
+.action-card p {
+    font-size: 0.95rem;
+    color: var(--color-text-light); /* Use a lighter brown for descriptions */
+    margin-bottom: 25px; /* Increase margin below paragraph */
+    line-height: 1.5;
+}
+/* ------------------------------------------------------------------------------------------ */
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: var(--color-light-brown);
+    margin-top: 2rem;
+    border-radius: 10px;
+}
+
+/* Upload Section */
+.upload-container {
+    display: flex;
+    gap: 3rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+.item-details {
+    background: var(--color-card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    flex: 2;
+    min-width: 320px;
+}
+.photo-upload {
+    border: 2px dashed var(--color-primary-accent);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    background: var(--color-light-peach);
+}
+.upload-icon {
+    font-size: 3rem;
+    color: var(--color-primary-accent);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+.preview-box.has-image {
+    border-color: var(--color-secondary-accent);
+}
+.upload-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+.upload-buttons .btn {
+    width: 50%;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+.upload-buttons .primary-btn {
+    background: var(--color-primary-accent);
+    color: rgba(255, 255, 255, 0.441);
+}
+.upload-buttons .secondary-btn {
+    background: var(--color-secondary-accent);
+    color: white;
+}
+.photo-tips h3 {
+    color: var(--color-secondary-accent);
+}
+
+/* Closet Section */
+.closet-stats {
+    display: flex;
+    gap: 3rem;
+    margin: 2rem 0;
+    justify-content: flex-start;
+}
+.closet-items {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+.add-item-card {
+    background: var(--color-light-peach);
+    border: 2px dashed var(--color-primary-accent);
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+.add-item-card:hover {
+    box-shadow: 0 6px 16px rgba(184,134,11,0.2);
+    transform: translateY(-2px);
+}
+.item-card {
+    background: var(--color-card-bg);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+.item-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+} 
+ .item-card {
+    background: var(--color-card-bg);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    /* ADDED: Set max-width so the card shrinks to the new image size */
+    max-width: 120px; 
+    text-align: center; /* Center content inside the card */
+    padding: 0.5rem; /* Give it some breathing room, like .pick-card */
+}
+
+.item-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+/* --- ADD THIS NEW BLOCK TO SIZE THE IMAGE INSIDE item-card --- */
+.item-card img {
+    width: 100px; /* Forces the image to be small */
+    height: 100px; /* Forces the image to be small */
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+/* --- END NEW BLOCK --- */
+
+/* Closet Section - Category Filter Buttons */
+/* Closet Section - Category Filter Buttons */
+.category-filter {
+    display: flex;             /* Arrange children horizontally */
+    flex-wrap: wrap;           /* Wrap to next line on smaller screens */
+    gap: 1rem;                 /* Space between buttons */
+    margin-top: 1.5rem;        /* Space from the closet items */
+    width: 100%;
+}
+
+.filter-btn {
+    background: var(--color-light-brown);
+    color: var(--color-secondary-accent);
+    padding: 0.5rem 1rem;      /* Comfortable button padding */
+    border-radius: 20px;       /* Rounded pill shape */
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    flex-shrink: 0;            /* Prevent buttons from shrinking too much */
+    transition: all 0.2s ease; /* Smooth hover transition */
+    border: none;              /* Remove default border */
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--color-primary-accent); /* Highlighted background */
+    color: #fff;                             /* White text */
+    box-shadow: 0 2px 10px rgba(184,134,11,0.3); /* Subtle shadow */
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--color-primary-accent);
+    color: #fff;
+    box-shadow: 0 2px 10px rgba(184,134,11,0.3);
+}
+
+/* AI Recommendations Section */
+/* AI Recommendations Section */
+.ai-recommend-container {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+/* --- Main and Side Panel Structure --- */
+.ai-main {
+    flex: 2;
+    min-width: 320px;
+    background: var(--color-card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Stronger shadow for the main feature */
+}
+.ai-side {
+    flex: 1;
+    min-width: 250px;
+    background: var(--color-card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.ai-side h4 {
+    color: var(--color-secondary-accent);
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-light-brown);
+}
+
+/* --- Outfit Title and Match Percentage --- */
+.outfit-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--color-secondary-accent);
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-top: 0;
+}
+.match-percent {
+    background: var(--color-primary-accent);
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(184,134,11,0.3);
+}
+
+/* --- Outfit Display Row --- */
+.ai-outfit-row {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-light-brown);
+}
+.ai-outfit-card {
+    text-align: center;
+    padding: 1rem;
+    border-radius: 12px;
+    background: var(--color-light-brown);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+.ai-outfit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+.ai-outfit-card img {
+    width: 150px; /* Larger image size for main recommendation */
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    border: 3px solid var(--color-card-bg); /* Little highlight frame */
+}
+.ai-outfit-card span {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+}
+
+/* --- Detail Row (Occasion/Weather) --- */
+.ai-details-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-light-brown);
+    margin-bottom: 1rem;
+}
+.ai-details-row .detail-value {
+    margin-left: auto;
+    font-weight: 500;
+    color: var(--color-primary-accent);
+}
+
+/* --- Action Buttons (Bottom of Main) --- */
+.ai-actions-row-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+.ai-actions-row-bottom .btn {
+    flex: 1;
+    padding: 0.8rem;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+/* Love Button Styles */
+.ai-actions-row-bottom .love-btn,
+.ai-side .side-love-btn {
+    background: linear-gradient(90deg, var(--color-primary-accent) 0%, var(--color-dark-gold) 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(184,134,11,0.3);
+    border: none;
+}
+.ai-actions-row-bottom .love-btn:hover,
+.ai-side .side-love-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(184,134,11,0.4);
+}
+
+/* Pass/Share Button Styles */
+.ai-actions-row-bottom .pass-btn,
+.ai-side .side-pass-btn,
+.ai-side .side-share-btn {
+    background: var(--color-card-bg);
+    color: var(--color-secondary-accent);
+    border: 2px solid var(--color-secondary-accent);
+}
+.ai-actions-row-bottom .pass-btn:hover,
+.ai-side .side-pass-btn:hover,
+.ai-side .side-share-btn:hover {
+    transform: translateY(-3px);
+    background: var(--color-light-brown);
+}
+
+/* Next Suggestion Button (Side) */
+.ai-side .next-btn-side {
+    background: linear-gradient(90deg, var(--color-secondary-accent) 0%, var(--color-primary-accent) 100%);
+    color: white;
+    margin-top: 1rem;
+}
+
+/* Style Tip Box */
+.style-tip {
+    background: linear-gradient(135deg, var(--color-light-peach), var(--color-light-brown));
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: auto; /* Pushes the tip to the bottom of the side panel */
+    color: var(--color-text-dark);
+    border: 1px solid rgba(184, 134, 11, 0.1);
+}
+
+/* Media Query Adjustment for small screens */
+@media (max-width: 600px) {
+    .ai-outfit-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .navbar {
+        padding: 1rem 1.5rem;
+    }
+    .dashboard-header {
+        flex-direction: column;
+        align-items: center; 
+        padding: 2rem 1.5rem;
+    }
+    .welcome-text {
+        text-align: center;
+    }
+    .welcome-media {
+        justify-content: center;
+        width: 100%;
+        margin-top: 1.5rem;
+    }
+    .header-media {
+        max-width: 100%; 
+        height: 180px; 
+        margin-left: 0;
+    }
+    .upload-container,
+    .ai-recommend-container {
+        flex-direction: column;
+    }
+    .closet-items {
+        flex-wrap: wrap;
+    }
+    .stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .actions {
+        grid-template-columns: 1fr;
+    }
+} 
+
+/* --- NEW CSS FOR ITEM TYPE & PRIMARY COLOR LAYOUT (To match Image 2) --- */
+
+/* Container that holds Item Type and Primary Color side by side */
+.item-selection-row {
+    display: block;              
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.item-selection-row > div {
+    width: 100%;
+    margin-bottom: 1rem;        
+}
+
+
+/* Each field (Item Type / Primary Color) takes equal width */
+/* Beautiful Add to Closet Button */
+
+
+/* --- NEW CSS FOR LARGE 'Add to Closet' BUTTON (To match Image 2) --- */
+
+.large-add-btn {
+    /* Base styling for the large block appearance */
+    width: 100%;
+    height: 60px; /* Makes it tall and rectangular */
+    display: flex; /* Centers the text */
+    justify-content: center; 
+    align-items: center; 
+
+    /* Colors to match the taupe/brown scheme in Image 2 */
+    background: var(--color-light-brown); 
+    color: var(--color-text-dark); 
+    
+    /* Styling adjustments */
+    padding: 0; 
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 12px;
+    border: none;
+    
+    /* Space the button below the dropdown fields */
+    margin-top: 1rem; 
+    transition: all 0.2s ease;
+}
+
+/* Disabled state (Matches Image 2's muted look) */
+.large-add-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    background: var(--color-secondary-accent); /* Keeps disabled state darker */
+    color: rgba(255, 255, 255, 0.7); /* Slightly transparent white for disabled text */
+}
+/* Active/Hover state */
+.large-add-btn:not(:disabled):hover {
+    background: var(--color-secondary-accent); /* Darker brown/mocha on hover */
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Ensures dropdowns fill full available width */
+.item-selection-row select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.item-selection-row select:focus {
+    border-color: #b8860b;       /* Subtle gold accent on focus */
+}
+
+/* 'Add to Closet' button full width styling */
+.add-to-closet {
+    width: 100%;
+    display: block;
+    margin-top: 1rem;
+    background: linear-gradient(90deg, #ff6b81, #6c63ff);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 0;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(108, 99, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.add-to-closet:hover:not(:disabled) {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.add-to-closet:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+} 
+ /* --- NEW AUTH VIEW STYLES (For the Sign In card) --- */
+
+#signin-view {
+  /* This centers the auth card horizontally and vertically */
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh; 
+  padding: 4rem 2rem;
+}
+
+.auth-card {
+  /* NOTE: Assuming you have CSS variables defined, e.g., --color-card-bg */
+  background: var(--color-card-bg, #fff); 
+  padding: 3rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.auth-tabs {
+  display: flex;
+  justify-content: space-between;
+  /* NOTE: Assuming you have CSS variables defined */
+  border-bottom: 2px solid var(--color-light-brown, #ddd); 
+  margin-bottom: 2rem;
+}
+
+.tab-btn {
+  flex-grow: 1;
+  background: none;
+  border: none;
+  padding: 1rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  /* NOTE: Assuming you have CSS variables defined */
+  color: var(--color-text-light, #777); 
+  cursor: pointer;
+  transition: color 0.2s, border-bottom 0.2s;
+}
+
+.tab-btn.active {
+  /* NOTE: Assuming you have CSS variables defined */
+  color: var(--color-secondary-accent, #8D6E63); /* Using your secondary accent color */
+  border-bottom: 3px solid var(--color-primary-accent, #B8860B); /* Using your primary accent color */
+}
+
+.auth-form h2 {
+  margin-top: 0;
+  color: var(--color-secondary-accent, #8D6E63);
+}
+.auth-form p {
+  color: var(--color-text-light, #7f8c8d);
+  margin-bottom: 1.5rem;
+}
+
+.auth-form label {
+  display: block;
+  text-align: left;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+.auth-form .signin.full-width {
+  /* Targets the Sign In button within the auth-form */
+  width: 100%;
+  margin-top: 2rem;
+  padding: 12px 0;
+  font-size: 1.1rem;
+  border-radius: 25px;
+  /* Reusing the existing .btn.signin styles which use your color variables */
+}
+
+.forgot-password {
+  display: block;
+  margin-top: 1rem;
+  color: var(--color-primary-accent, #B8860B);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Ensure all .btn anchors don't underline and align */
+.btn {
+   text-decoration: none;
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+ }
+
+ /* --- Auth modal / overlay --- */
+ #signin-view {
+   display: none; /* kept hidden until opened via JS */
+ }
+
+ /* when shown make it an overlay & center the card */
+ #signin-view.modal-open {
+   position: fixed;
+   inset: 0;
+   display: flex !important;
+   align-items: center;
+   justify-content: center;
+   background: rgba(4, 8, 20, 0.45); /* dark translucent backdrop */
+   z-index: 2000;
+   padding: 2rem;
+ }
+
+ .auth-card {
+   width: 460px;
+   max-width: 95%;
+   background: linear-gradient(180deg,#fff,#fbf7f5);
+   border-radius: 18px;
+   box-shadow: 0 20px 60px rgba(4,8,20,0.2);
+   padding: 1.4rem 1.6rem;
+   position: relative;
+ }
+
+ .auth-close {
+   position: absolute;
+   right: 12px;
+   top: 12px;
+   background: transparent;
+   border: none;
+   font-size: 1.1rem;
+   cursor: pointer;
+   color: #6b4a3a;
+ }
+
+ .auth-tabs {
+   display: flex;
+   gap: 0.5rem;
+   background: rgba(0,0,0,0.02);
+   padding: 6px;
+   border-radius: 999px;
+   margin-bottom: 0.6rem;
+ }
+
+ .auth-tabs .tab-btn {
+   flex: 1;
+   background: transparent;
+   border: none;
+   padding: 10px 12px;
+   border-radius: 999px;
+   cursor: pointer;
+   font-weight: 600;
+   color: #6b4a3a;
+ }
+
+ .auth-tabs .tab-btn.active {
+   background: linear-gradient(90deg,#c9a042,#7a4b3a);
+   color: #fff;
+   box-shadow: 0 8px 24px rgba(122,75,58,0.12);
+ }
+
+ .auth-form {
+   display: block;
+ }
+
+ .auth-form input[type="email"],
+ .auth-form input[type="password"],
+ .auth-form input[type="text"] {
+   width: 100%;
+   padding: 0.75rem 0.9rem;
+   margin-bottom: 0.75rem;
+   border-radius: 10px;
+   border: 1px solid rgba(98,70,60,0.12);
+   background: #fff;
+ }
+
+ .auth-form .full-width {
+   width: 100%;
+   padding: 0.9rem;
+   border-radius: 10px;
+   border: none;
+   cursor: pointer;
+   background: linear-gradient(90deg,#c9a042,#7a4b3a);
+   color: #fff;
+   font-weight: 700;
+   box-shadow: 0 8px 24px rgba(122,75,58,0.12);
+ }
+
+ /* small responsive tweak */
+ @media (max-width: 520px) {
+   .auth-card { padding: 1rem; width: 92%; }
+   .auth-tabs .tab-btn { padding: 8px; font-size: 0.95rem; }
+ }
+
+/* picks */
+.pick-cards-container { display:flex; gap:1rem; align-items:center; }
+.pick-card {
+  background:#fff;
+  padding:0.75rem;
+  border-radius:12px;
+  text-align:center;
+  width:120px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.06);
+}
+.pick-card img {
+  width:100%;
+  height:100px;
+  object-fit:cover;
+  border-radius:8px;
+  display:block;
+}
+
+/* About section */
+.about-section {
+    max-width: 950px; /* NEW: Increased overall width */
+    margin: 2.5rem auto;
+    padding: 0 1rem;
+    position: relative;
+}
+.about-card {
+    display: flex;
+    gap: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    background: linear-gradient(180deg,#fff,#fbf7f5);
+    box-shadow: 0 18px 40px rgba(37,21,16,0.08);
+    align-items: stretch;
+}
+
+/* LEFT PANEL - dark brown branding block */
+.about-left {
+    background: linear-gradient(180deg,#5d3726,#4a2b20);
+    color: #fff;
+    padding: 2rem 2rem; /* NEW: Reduced padding */
+    /* Change flex to take a fixed width, or a smaller flex-grow ratio */
+    flex: 0 0 300px; /* NEW: Gives it a fixed width. Adjust to taste (e.g. 280px-350px) */
+    /* OR, if you want it to scale more proportionally: */
+    /* flex: 0 0 35%; */ /* NEW: Smaller percentage of overall width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* circular icon */
+/* circular icon */
+.about-icon {
+    width: 110px; /* Slightly smaller icon */
+    height: 110px; /* Slightly smaller icon */
+    /* ... other styles ... */
+    margin-bottom: 1rem; /* NEW: Reduced margin */
+    font-size: 44px; /* Slightly smaller icon content */
+}
+
+/* branding text on left */
+.about-brand {
+    font-size: 1.5rem; /* NEW: Slightly smaller font */
+    /* ... other styles ... */
+}
+.about-sub {
+    margin-top: 0.3rem; /* NEW: Reduced margin */
+    margin-bottom: 1.2rem; /* NEW: Reduced margin */
+    font-size: 0.95rem; /* NEW: Slightly smaller font */
+}
+
+/* primary CTA (Email us) and socials */
+.about-email {
+    /* ... other styles ... */
+    margin: 0.5rem 0 1.2rem 0; /* NEW: Reduced margin */
+}
+.about-socials {
+    /* ... other styles ... */
+    margin-top: 0.5rem; /* NEW: Reduced margin */
+}
+
+/* right side H2 */
+
+.about-text {
+    margin-bottom: 1.5rem; /* NEW: Reduced margin */
+    font-size: 0.95rem; /* NEW: Slightly smaller font */
+}
+/* RIGHT PANEL - info and CTAs */
+.about-right {
+    padding: 1.8rem 2rem; /* NEW: Reduced top/bottom padding to shrink height */
+    flex: 1;
+    background: linear-gradient(180deg,#fff,#fbf7f5);
+}
+.about-right h2 {
+    margin: 0 0 0.8rem 0;
+    color: #3b2b24;
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+ /* .about-text {
+    color: #5b463e;
+    line-height: 1.5;
+    font-size: 1rem;
+    margin-bottom: 1.8rem;
+}  */
+
+/* right side CTA buttons */
+.about-ctas {
+    display:flex;
+    gap: 1rem;
+    align-items: center;
+}
+.view-features, .meet-team {
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+}
+.view-features {
+    background: #4d362d;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(77,54,45,0.18);
+}
+.meet-team {
+    background: transparent;
+    color: #4d362d;
+    border: 2px solid rgba(77,54,45,0.12);
+}
+
+/* responsive adjustments */
+@media (max-width: 900px) {
+  .about-card { flex-direction: column; }
+  .about-left { flex: none; width: 100%; padding: 2rem; }
+  .about-right { padding: 1.6rem; }
+  .about-icon { width: 96px; height:96px; font-size:36px; margin-bottom:1rem; }
+}
+
+/* ------------------------------------------- */
+/* SECTION SPECIFIC STYLES */
+/* ------------------------------------------- */
+
+/* About section */
+.about-section {
+    display: block; /* remove any rule forcing it hidden */
+}
+
+/* How It Works — aesthetic cards with connectors */
+.how-it-works {
+    max-width: 920px;
+    margin: 1rem auto;
+    padding: 0 0.8rem;
+}
+
+.how-it-works h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+    color: #3b2b24; /* dark brown */
+    font-weight: 800;
+    letter-spacing: -0.01em;
+}
+.how-it-works .star { color: #d6a62b; margin-left: .35rem; }
+
+/* row + cards */
+.how-row {
+    display: flex;
+    gap: 12px;               /* tighter gap between cards */
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.how-card {
+    position: relative;
+    padding: 14px 12px;      /* smaller card padding */
+    border-radius: 10px;
+    flex: 1 1 170px;         /* smaller base width */
+    min-width: 150px;
+    max-width: 220px;
+    box-shadow: 0 8px 20px rgba(37,21,16,0.05);
+    transform: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform .28s cubic-bezier(.2,.9,.2,1), box-shadow .28s;
+    overflow: visible;
+    animation: howFadeUp .5s ease both;
+}
+
+/* small stagger */
+.how-card:nth-child(1){ animation-delay: 0.06s; }
+.how-card:nth-child(2){ animation-delay: 0.12s; }
+.how-card:nth-child(3){ animation-delay: 0.18s; }
+.how-card:nth-child(4){ animation-delay: 0.24s; }
+
+@keyframes howFadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.how-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 36px rgba(37,21,16,0.12);
+}
+
+/* icon circle */
+.how-icon {
+    width: 54px;
+    height: 54px;
+    font-size: 20px;         /* reduce inline svg/icon apparent size */
+    margin-bottom: 10px;
+}
+
+/* title + copy */
+.how-card h3 {
+    font-size: 0.98rem;
+    margin-bottom: 6px;
+}
+.how-card p {
+    font-size: 0.82rem;
+    line-height: 1.4;
+}
+
+/* dotted connector & arrow between cards */
+.how-card:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 2px;
+    background-image: repeating-linear-gradient(90deg, rgba(93,55,38,0.18) 0 3px, transparent 3px 6px);
+    border-radius: 2px;
+    opacity: 0.9;
+}
+
+/* small gold arrow circle at connector end */
+.how-card:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    right: -3px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 9px;
+    height: 9px;
+}
+
+/* responsive: stack vertically and hide connectors */
+@media (max-width: 860px) {
+    .how-row { flex-direction: column; gap: 12px; }
+    .how-card { width: 100%; max-width: none; padding: 12px; }
+    .how-icon { width: 48px; height: 48px; font-size: 18px; }
+    .how-it-works h2 { font-size: 1.4rem; }
+}
+
+/* --- How It Works — enhanced, lively version --- */
+.how-it-works {
+    position: relative;
+    max-width: 980px;
+    margin: 1.6rem auto;
+    padding: 1rem;
+    z-index: 0;
+}
+
+/* stronger glowing backdrop with tinted color for contrast */
+.how-it-works::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 18%;
+    transform: translateX(-50%);
+    width: 92%;
+    height: 260px;
+    background: radial-gradient(closest-side, rgba(232,67,147,0.06), rgba(214,166,43,0.03), transparent 50%);
+    filter: blur(48px);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* row */
+.how-row { display:flex; gap:20px; justify-content:center; align-items:stretch; flex-wrap:wrap; }
+
+/* card — deeper shadow, slightly tinted surface for contrast */
+.how-card {
+    position: relative;
+    flex: 1 1 200px;
+    min-width: 170px;
+    max-width: 260px;
+    padding: 18px 14px;
+    border-radius: 14px;
+    background: linear-gradient(180deg, #fffefc, #fff6f4);
+    border: 1px solid rgba(93,55,38,0.07);
+    box-shadow: 0 18px 40px rgba(37,21,16,0.10);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform .36s cubic-bezier(.2,.9,.2,1), box-shadow .36s, filter .36s;
+    transform-style: preserve-3d;
+    overflow: visible;
+}
+
+/* sheen */
+.how-card::after {
+    content:"";
+    position:absolute;
+    left:-10%;
+    top:-8%;
+    width:120%;
+    height:26%;
+    background: linear-gradient(90deg, rgba(255,255,255,0.32), rgba(255,255,255,0));
+    transform: rotate(-6deg);
+    border-radius:12px;
+    mix-blend-mode: overlay;
+    opacity:0.28;
+    pointer-events:none;
+}
+
+/* hover — stronger 3D tilt + depth */
+.how-card:hover {
+    transform: translateY(-18px) rotateX(4deg) rotateZ(-1deg) scale(1.045);
+    box-shadow: 0 36px 68px rgba(37,21,16,0.18);
+}
+
+/* icon circle — more saturated gradient for contrast */
+.how-icon {
+    width:76px;
+    height:76px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+      radial-gradient(circle at 30% 25%, rgba(255,217,140,0.14), transparent 30%),
+      linear-gradient(135deg,#ff6f9a 0%, #8a2be2 60%);
+    color: #fff;
+    box-shadow: inset 0 -8px 18px rgba(0,0,0,0.06), 0 12px 30px rgba(138,43,226,0.12);
+    margin-bottom:12px;
+    transition: transform .28s;
+    animation: howFloatStrong 3.6s ease-in-out infinite;
+}
+
+/* icon float with subtle scale pulse */
+@keyframes howFloatStrong {
+    0%   { transform: translateY(0) scale(1); }
+    25%  { transform: translateY(-8px) scale(1.02); }
+    50%  { transform: translateY(-4px) scale(1.01); }
+    75%  { transform: translateY(-8px) scale(1.02); }
+    100% { transform: translateY(0) scale(1); }
+}
+.how-card:hover .how-icon { transform: translateY(-6px) scale(1.08); }
+
+/* text */
+.how-card h3 { margin: 0; font-size: 1rem; color: #3b2b24; font-weight: 800; }
+.how-card p  { margin: 0; color: #6b5650; font-size: 0.88rem; line-height: 1.45; }
+
+/* connector decorative dotted svg behind cards */
+.how-inner::after {
+    content: "";
+    position: absolute;
+    left: 60px;
+    right: 60px;
+    top: 55%;
+    height: 2px;
+    background-image: radial-gradient(circle at 0 0, rgba(214,166,43,0.18) 0.6px, transparent 0.6px);
+    background-size: 12px 2px;
+    opacity: 0.22;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+/* responsive */
+@media (max-width:860px) {
+    .how-row { flex-direction: column; gap: 12px; }
+    .how-card { width:100%; max-width:none; transform:none; }
+    .how-card:not(:last-child)::after,
+    .how-card:not(:last-child)::before { display:none; }
+    .how-it-works::before { display:none; }
+}
+
+/* How It Works — single boxed panel, brown + pastel scheme */
+.how-it-works-box {
+    max-width: 1150px;
+    margin: 1.8rem auto;
+    padding: 18px;
+    box-sizing: border-box;
+    padding-top: 22px;
+}
+
+.how-inner {
+    background: linear-gradient(180deg, #fffaf7 0%, #fbf6f2 40%, #f7efe9 100%);
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(74,43,32,0.08);
+    border: 1px solid rgba(74,43,32,0.06);
+    padding: 26px;
+    position: relative;
+    overflow: visible;
+}
+
+/* decorative left brown stripe and subtle pattern */
+.how-inner::before {
+    content: "";
+    position: absolute;
+    left: -8px;
+    top: 12px;
+    bottom: 12px;
+    width: 12px;
+    background: linear-gradient(180deg, #4a2b20, #7c4d3a);
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(74,43,32,0.06);
+    pointer-events: none;
+}
+
+/* header */
+.how-inner h2 {
+    margin: 0 0 14px 18px;
+    color: #3b2b24;
+    font-size: 1.6rem;
+    font-weight: 800;
+    display: inline-block;
+}
+.how-inner .how-star {
+    color: #d6a62b;
+    margin-left: 8px;
+}
+
+/* row of cards */
+.how-row {
+    display: flex;
+    gap: 18px;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+/* individual card */
+.how-card {
+    flex: 1 1 220px;
+    min-width: 160px;
+    max-width: 260px;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(74,43,32,0.06);
+    border: 1px solid rgba(74,43,32,0.04);
+    transition: transform .36s cubic-bezier(.2,.9,.2,1), box-shadow .36s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+/* icon circle with pastel brown/gold glow */
+.how-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: radial-gradient(circle at 30% 25%, rgba(214,166,43,0.12), transparent 30%),
+                linear-gradient(135deg,#f2ded4 0%, #f8efe7 100%);
+    color: #4a2b20;
+    box-shadow: 0 8px 22px rgba(138,43,26,0.06), inset 0 -6px 10px rgba(0,0,0,0.03);
+    transition: transform .3s ease;
+    animation: iconFloat 4s ease-in-out infinite;
+}
+@keyframes iconFloat {
+    0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-6px); }
+}
+
+.how-card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px rgba(74,43,32,0.12); }
+.how-card:hover .how-icon { transform: translateY(-8px) scale(1.04); }
+
+/* text */
+.how-card h3 { margin: 0; font-size: 1rem; color: #3b2b24; font-weight: 800; }
+.how-card p  { margin: 0; color: #6b5650; font-size: 0.88rem; line-height: 1.45; }
+
+/* connector decorative dotted svg behind cards */
+.how-inner::after {
+    content: "";
+    position: absolute;
+    left: 60px;
+    right: 60px;
+    top: 55%;
+    height: 2px;
+    background-image: radial-gradient(circle at 0 0, rgba(214,166,43,0.18) 0.6px, transparent 0.6px);
+    background-size: 12px 2px;
+    opacity: 0.22;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+/* responsive */
+@media (max-width: 920px) {
+    .how-inner { padding: 18px; }
+    .how-row { gap: 12px; }
+    .how-card { flex: 1 1 45%; max-width: none; min-width: 140px; padding: 14px; }
+    .how-inner h2 { font-size: 1.25rem; margin-left: 12px; }
+}
+@media (max-width: 560px) {
+    .how-row { flex-direction: column; }
+    .how-card { width: 100%; }
+    .how-inner::before { display: none; }
+    .how-inner::after { display: none; }
+}
+
+/* --- Review Slider Section Styling --- */
+.review-slider-section {
+    padding: 60px 0;
+    background-color: #f7f7f7; /* Light background for contrast */
+    text-align: center;
+}
+
+.review-header h2 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.review-header p {
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 700px; /* Control the max width of the reviews */
+    margin: 0 auto;
+    overflow: hidden; /* **CRUCIAL: Hides the reviews that are off-screen** */
+    border-radius: 12px;
+}
+
+.reviews-wrapper {
+    display: flex;
+    /* **CRUCIAL: Enables the smooth sliding effect** */
+    transition: transform 0.6s ease-in-out; 
+}
+
+.review-slide {
+    min-width: 100%; /* Each slide takes up the full width of the container */
+    flex-shrink: 0; /* Prevents slides from shrinking */
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.review-box {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.stars {
+    color: #ffd700; /* Gold color for stars */
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.quote {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.reviewer-info strong {
+    display: block;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.reviewer-info .title {
+    color: #ff6b81; /* Use your brand color */
+    font-size: 0.9rem;
+}
+
+/* Navigation Buttons */
+/* Navigation Buttons */
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    /* Better visibility with a stronger background and color */
+    background: #fff; /* Solid White */
+    color: #ff6b81; /* Bold Brand Color */ 
+    border: 1px solid #ff6b81; /* Brand border */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s;
+}
+
+/* FIX: Position the buttons slightly inside the visible area */
+.prev-btn {
+    left: 5px; 
+}
+
+.next-btn {
+    right: 5px; 
+}
+
+/* Ensure hover is strong for contrast */
+.prev-btn:hover, .next-btn:hover {
+    background-color: #ff6b81;
+    color: white;
+    border-color: #ff6b81;
+}
+
+/* Reviews Section Styling */
+.reviews-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: linear-gradient(180deg, #fbf2ea 0%, #f7efe6 100%);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(74,43,32,0.08);
+}
+
+.reviews-title {
+    text-align: center;
+    color: #4a2b20;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 800;
+}
+
+.reviews-title .star {
+    color: #d6a62b;
+    margin-left: 8px;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.review-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 24px rgba(74,43,32,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(74,43,32,0.04);
+}
+
+.review-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(74,43,32,0.12);
+}
+
+.review-content {
+    position: relative;
+    padding: 1rem;
+}
+
+.quote-mark {
+    position: absolute;
+    top: -20px;
+    left: -10px;
+    font-size: 3rem;
+    color: rgba(214,166,43,0.2);
+    font-family: serif;
+}
+
+.review-content p {
+    color: #4a2b20;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 1rem 0;
+    position: relative;
+    z-index: 1;
+}
+
+.reviewer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.reviewer-pic {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e9d6c1, #dec3a3);
+    color: #4a2b20;
+    display: grid;
+    place-items: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+    box-shadow: inset 0 -4px 8px rgba(0,0,0,0.04);
+}
+
+.reviewer-info h4 {
+    color: #4a2b20;
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.reviewer-info span {
+    color: #6b5650;
+    font-size: 0.9rem;
+}
+
+/* Feature Cards Container */
+.feature-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    position: relative;
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 15px;
+}
+
+/* Double Border Effect */
+.feature-card::before,
+.feature-card::after {
+    content: '';
+    position: absolute;
+    inset: -2px;  /* Controls inner border spacing */
+    border-radius: 17px;
+    background: linear-gradient(45deg, #b98e52, #d4b483);
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    padding: 2px;  /* Controls space between double borders */
+}
+
+.feature-card::after {
+    inset: -6px;  /* Controls outer border spacing */
+    border-radius: 19px;
+    padding: 2px;
+    opacity: 0.7;
+}
+
+/* Rest of your existing feature card styles... */
