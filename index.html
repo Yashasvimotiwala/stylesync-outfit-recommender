@@ -38,7 +38,7 @@
       <h2>🔥 Today's Picks</h2>
       <div class="pick-cards-container">
         <div class="pick-card">
-          <img src="https://kailaboutique.com/cdn/shop/files/Screenshot2024-09-21212823_cleanup_1800x1800.png?v=1756729597" alt="Jacket" />
+          <img src="https://i.pinimg.com/1200x/10/bb/3b/10bb3bc222975eecebacf7248027f57e.jpg" />
           <p><strong>Classic  Jacket</strong></p>
         </div>
         <div class="pick-card">
@@ -102,6 +102,42 @@
         <h3>Get AI Recommendations</h3>
         <p>Discover perfect outfit combinations</p>
         <a href="#" class="btn ai-action">Style Me</a>
+    </div>
+</section> 
+
+ <section class="powerful-features-box">
+    
+    <div class="features-header">
+        <h2>Powerful Features</h2>
+        <p>Everything you need to elevate your personal style</p>
+    </div>
+
+    <div class="feature-grid">
+        
+        <a href="#" class="feature-card ai-action">
+            <span class="feature-icon">☁️</span> 
+            <h3>Weather Outfits</h3>
+            <p>Suggestions based on real-time conditions.</p>
+        </a>
+
+        <a href="#" class="feature-card plan-event">
+            <span class="feature-icon">✨</span> 
+            <h3>Event Mode</h3>
+            <p>Perfect ideas for any occasion, from casual to formal.</p>
+        </a>
+
+        <a href="#" class="feature-card ai-action">
+            <span class="feature-icon">💬</span> 
+            <h3>AI Stylist</h3>
+            <p>Chat with your personal AI for instant fashion advice.</p>
+        </a>
+
+        <a href="#" class="feature-card closet-action">
+            <span class="feature-icon">🧺</span> 
+            <h3>Your Closet</h3>
+            <p>Organize and manage your wardrobe with smart categorization.</p>
+        </a>
+
     </div>
 </section>
     <footer>
@@ -209,121 +245,79 @@
 
   <!-- My Closet Section -->
   <section id="closet-view" class="app-screen" style="display:none;">
-    <h2>My Virtual Closet</h2>
-    <p>Manage and organize your wardrobe</p>
-    <div class="closet-stats">
-      <div>
-        <span style="font-size:2rem;font-weight:bold;">4</span><br>Total Items
-      </div>
-      <div>
-        <span style="font-size:2rem;font-weight:bold;">4</span><br>Categories
-      </div>
-      <div>
-        <span style="font-size:2rem;font-weight:bold;">12</span><br>Recent Uploads
-      </div>
-    </div>
-    <div class="closet-items">
-  
-  <!-- Add New Item Card -->
-  <div class="add-item-card">
-    <span style="font-size: 3rem; color: #ff6b81;">+</span>
-    <div>Add New Item<br><small>Upload clothes</small></div>
-  </div>
 
-  <!-- Closet Items -->
+    <div id="closet-grid-view"> 
+        
+        <h2>My Virtual Closet</h2>
+        <p>Manage and organize your wardrobe</p>
+        
+        <div class="closet-stats">
+            <div>
+                <span id="totalItemsCount">0</span><br>Total Items
+            </div>
+            <div>
+                <span>0</span><br>Categories
+            </div>
+            <div>
+                <span>0</span><br>Recent Uploads
+            </div>
+        </div>
 
-  <div class="item-card" data-category="tops">
-    <img src="https://i.pinimg.com/736x/73/dc/c4/73dcc4539122b619d5f89b10289afffd.jpg"alt="top" />
-    <div>Top<br><span>Pink</span></div>
-  </div>
+        <div class="closet-items items-grid" id="closetItemsContainer"> 
+        
+            <div class="add-item-card" data-action="upload">
+                <span style="font-size: 3rem;">+</span>
+                <div>Add New Item<br><small>Upload clothes</small></div>
+            </div>
 
-  <div class="item-card" data-category="tops">
-    <img src="https://i.pinimg.com/736x/44/04/de/4404de614c77e2c4310edb6c4a649349.jpg" alt="tops" />
-    <div>Top<br><span>butter Yellow</span></div>
-  </div>
-<div class="item-card" data-category="bottoms">
-    <img src="https://i.pinimg.com/736x/94/7c/f0/947cf07167c4d9e42da60ee7459e4348.jpg" alt="bottom" />
-    <div>jeans <br><span>light blue </span></div>
-  </div>
-  <div class="item-card" data-category="bottoms">
-    <img src="https://i.pinimg.com/1200x/3c/26/73/3c267309e9618fb4bff948a02645c3f8.jpg" alt="bottom" />
-    <div> jeans<br><span>washed jeans </span></div>
-  </div>
-  <div class="item-card" data-category="bottoms">
-    <img src="https://i.pinimg.com/736x/cd/f2/43/cdf2436ac91bab47009b2135a90bbf05.jpg" alt="bottom" />
-    <div> jeans<br><span>blue </span></div>
-  </div>
-  <div class="item-card" data-category="bottoms">
-    <img src="https://i.pinimg.com/1200x/65/60/1e/65601e78e8e439ce9f88f467aec4c7ea.jpg" alt="bottom" />
-    <div>leather skirt mini<br><span>black </span></div>
-  </div>
+            </div>
 
-  <div class="item-card" data-category="outerwear">
-    <img src="https://i.pinimg.com/1200x/9a/3a/b2/9a3ab20cde70c9bc8e614cb864c82b36.jpg" alt="Jacket" />
-    <div>beachy mini skirt<br><span>pink</span></div>
-  </div>
+        <div class="category-filter">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="tops">Tops</button>
+            <button class="filter-btn" data-filter="bottoms">Bottoms</button>
+            <button class="filter-btn" data-filter="dresses">Dresses</button>
+            <button class="filter-btn" data-filter="outerwear">Outerwear</button>
+            <button class="filter-btn" data-filter="accessories">Accessories</button>
+            <button class="filter-btn" data-filter="shoes">Shoes</button>
+        </div>
 
-  <div class="item-card" data-category="bottoms">
-    <img src="https://i.pinimg.com/736x/f6/17/78/f617787e8ae64af0b74a25b0e10904d7.jpg" alt="bottoms" />
-    <div>skirt<br><span>Brown</span></div>
-  </div>
+    </div> 
+    <div id="item-detail-view" style="display:none;">
+        
+        <button id="back-to-closet-btn" class="back-btn">← Back to Closet</button>
 
-  <div class="item-card" data-category="bottoms">
-    <img src="https://i.pinimg.com/1200x/36/d6/9d/36d69d60ae0c1a00f937fa090d0d1e10.jpg" alt="bottoms" />
-    <div>maxi skirt<br><span>cream</span></div>
-  </div>
+        <div class="item-detail-content">
+            <div class="detail-image-wrapper">
+                <img id="item-detail-image" src="" alt="Selected Item Image" class="detail-image" />
+            </div>
 
-  <div class="item-card" data-category="bottoms">
-    <img src="https://i.pinimg.com/1200x/d1/ac/99/d1ac9918736a611ebbb5bf468c6f53e2.jpg" alt="bottoms" />
-    <div>demin skirt<br><span>demin blue</span></div>
-  </div>
-
-  <div class="item-card" data-category="tops">
-    <img src="https://i.pinimg.com/1200x/34/d5/42/34d542361b5b16f52187e87f4f77b823.jpg" alt="tops" />
-    <div>Jacket<br><span>Brown</span></div>
-  </div>
-   <div class="item-card" data-category="tops">
-    <img src="https://i.pinimg.com/736x/8c/d5/13/8cd513295f7eb2839e11e1db49fffe64.jpg" alt="tops" />
-    <div> demin Jacket<br><span>blue</span></div>
-  </div>
-   <div class="item-card" data-category="dresses">
-    <img src="https://i.pinimg.com/736x/03/5d/24/035d2412567bb712bab2c582d20039df.jpg" alt="dresses" />
-    <div>casual dress<br><span>brown</span></div>
-  </div>
-   <div class="item-card" data-category="dresses">
-    <img src="https://i.pinimg.com/736x/3f/d5/78/3fd578cb8ee17db81b316956bd7f8f5f.jpg" alt="dresses" />
-    <div>checks strappy dress <br><span>butter yellow</span></div>
-  </div>
-  
-  <div class="item-card" data-category="accessories">
-    <img src="https://i.pinimg.com/736x/4b/9f/dd/4b9fdd128a60792a39addf72b5b5439b.jpg" alt="accessories" />
-    <div>sunglasses<br><span></span></div>
-  </div>
-  <div class="item-card" data-category="shoes">
-    <img src="https://i.pinimg.com/736x/23/35/8d/23358dfdab3c4873ff74da30e96104b5.jpg" alt="shoes" />
-    <div>boots<br><span>black</span></div>
-  </div>
-
-</div>
-
-    <div class="category-filter">
- <button class="filter-btn active" data-filter="all">All</button>
-<button class="filter-btn" data-filter="tops">Tops</button>
- <button class="filter-btn" data-filter="bottoms">Bottoms</button>
- <button class="filter-btn" data-filter="dresses">Dresses</button>
-  <button class="filter-btn" data-filter="outerwear">Outerwear</button>
- <button class="filter-btn" data-filter="accessories">Accessories</button>
- <button class="filter-btn" data-filter="shoes">Shoes</button>
-</div>
-  </section>
+            <div class="detail-info">
+                <h3 id="item-detail-name"></h3> 
+                <p class="category-tag">Category: <span id="item-detail-category"></span></p>
+                
+                <p id="item-detail-desc" class="detail-description">This is where the item description will appear.</p>
+                
+                <div class="action-buttons">
+                    <button class="btn btn-primary">Suggest Outfit</button>
+                    <button class="btn btn-secondary">Edit Item</button>
+                </div>
+            </div>
+        </div>
+        
+    </div> 
+    </section>
 
   <!-- AI Recommendations Section -->
  <section id="ai-view" class="app-screen" style="display:none;">
-    <h2>AI Recommendations</h2>
-    <p>Discover your perfect style combinations</p>
-    <div class="ai-recommend-container">
+    
+    <div class="ai-header-box">
+        <h2>AI Recommendations</h2>
+        <p>Discover your perfect style combinations</p>
+    </div>
+        <div class="ai-recommend-container">
         <div class="ai-main">
-            <h3 class="outfit-title" style="color:#ff6b81;">Casual Chic <span class="match-percent">95% Match</span></h3>
+            <h3 class="outfit-title" style="color:#8B4513;">Casual Chic <span class="match-percent">95% Match</span></h3>
             <p style="margin-top: -0.5rem; color: #555;">Perfect for weekend brunch or casual meetings</p>
 
             <div class="ai-outfit-row">
