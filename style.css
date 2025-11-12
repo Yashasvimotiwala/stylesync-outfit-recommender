@@ -16,6 +16,8 @@
 
     --color-light-brown: #EFEBE9;
     --color-light-peach: #FADAD1;
+    --color-add-to-closet-brown: #8B4513; 
+    --color-add-to-closet-shadow: rgba(139, 69, 19, 0.4); 
 }
 
 /* Reset & Base */
@@ -155,32 +157,43 @@ body {
 }
 
 /* Action Buttons */
+/* Action Buttons */
+/* This block defines a universal style for all four dashboard action links */
+.action-link-button {
+    /* Base Button Styling */
+    display: inline-block;
+    padding: 0.6rem 1.6rem; /* Slightly larger padding for visual weight */
+    margin-top: 15px; /* Adds space below the text */
+    border-radius: 25px; /* Fully rounded corners */
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.05rem;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: all 0.2s ease-out;
+    
+    /* Color/Gradient (Matching the 'Plan Event' look) */
+    background: linear-gradient(90deg, var(--color-action-button-start) 0%, var(--color-action-button-end) 100%);
+    color: var(--color-text-dark); /* Use dark text for contrast on gold */
+    box-shadow: 0 4px 16px rgba(184,134,11,0.25);
+}
+
+/* Hover effect for all action links */
+.action-link-button:hover {
+    background: linear-gradient(90deg, var(--color-action-button-end) 0%, var(--color-action-button-start) 100%);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 24px rgba(184,134,11,0.35);
+}
+
+/* Cleanup: Remove all redundant/conflicting specific action button classes */
 .btn.upload-action,
 .btn.closet-action,
 .btn.ai-action,
 .btn.plan-event {
     text-decoration: none;
 }
-.btn.plan-event {
-    background: linear-gradient(90deg, var(--color-primary-accent) 0%, var(--color-secondary-accent) 100%);
-    color: #fff;
-    font-size: 1.08rem;
-    font-weight: bold;
-    box-shadow: 0 4px 16px rgba(141,110,99,0.2);
-    border: none;
-    letter-spacing: 0.5px;
-    transition: all 0.2s ease-out;
-}
-.btn.upload-action:hover,
-
-.btn.closet-action:hover,
-.btn.ai-action:hover,
-.btn.plan-event:hover {
-    background: linear-gradient(90deg, var(--color-secondary-accent) 0%, var(--color-primary-accent) 100%);
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 8px 24px rgba(184,134,11,0.25);
-}
-
 /* Dashboard Header */
 /* Dashboard Header */
 .dashboard-header {
@@ -236,7 +249,117 @@ body {
   .welcome-media { order: 2; width: 100%; min-width: 0; max-height: 50vh; }
   .header-video { max-height: 50vh; }
 }
+  /* ---------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------- */
+/* NEW FEATURE: CONSOLIDATED POWERFUL FEATURES BOX STYLING (v2: WIDER & SHORTER) */
+/* ---------------------------------------------------------------------- */
 
+.powerful-features-box {
+    /* Central container styling for the "out-of-the-box" effect */
+    
+    /* 📌 WIDER CHANGE: Increased max-width for horizontal stretch */
+    max-width: 1150px; 
+    
+    margin: 3rem auto;
+    
+    /* 📌 SHORTER CHANGE: Reduced top/bottom padding for vertical compression */
+    padding: 1.5rem 3rem; 
+    
+    background: var(--color-card-bg); /* White background */
+    border-radius: 18px;
+    border: 2px solid var(--color-light-brown); /* Subtle border */
+    
+    /* Key effect: Stronger, elevated box shadow */
+    box-shadow: 0 10px 40px rgba(109, 76, 65, 0.15); 
+    
+    /* Subtle tilt/lift effect on hover for extra pop */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.powerful-features-box:hover {
+    transform: translateY(-5px) scale(1.005);
+    box-shadow: 0 15px 50px rgba(109, 76, 65, 0.25);
+}
+
+/* Header Styling */
+.powerful-features-box .features-header {
+    text-align: center;
+    
+    /* 📌 SHORTER CHANGE: Reduced vertical margins/padding for height compression */
+    margin-bottom: 1.5rem; 
+    padding-bottom: 0.5rem; 
+    
+    border-bottom: 1px dashed var(--color-light-brown); /* Separator line */
+}
+
+.powerful-features-box .features-header h2 {
+    font-size: 2.4rem;
+    color: var(--color-dark-mocha);
+    margin: 0;
+    letter-spacing: -0.05em;
+}
+
+.powerful-features-box .features-header p {
+    color: var(--color-text-light);
+    margin: 0.5rem 0 0;
+    font-size: 1.1rem;
+}
+
+
+/* Feature Grid Layout */
+.feature-grid {
+    display: grid;
+    /* This automatically takes advantage of the new max-width */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 1.5rem;
+}
+
+/* Individual Feature Card Styling (Now using <a> tags for easier clicking) */
+.feature-card {
+    text-decoration: none; /* Remove link underline */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+    /* 📌 SHORTER CHANGE: Reduced padding for vertical compression */
+    padding: 1rem 1rem; 
+    
+    border-radius: 12px;
+    background: var(--color-bg-light); /* Lighter background for the card inside the box */
+    border: 1px solid var(--color-light-brown);
+    
+    /* Hover Effect */
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    background: #FFF;
+    border-color: var(--color-primary-accent);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(184, 134, 11, 0.1);
+}
+
+/* Icon Styling */
+.feature-icon {
+    font-size: 2.8rem;
+    color: var(--color-primary-accent);
+    margin-bottom: 0.75rem;
+}
+
+/* Text Styling */
+.feature-card h3 {
+    font-size: 1.3rem;
+    color: var(--color-dark-mocha);
+    margin: 0 0 0.4rem;
+}
+
+.feature-card p {
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    margin: 0;
+}
+/* ---------------------------------------------------------------------- */
 /* Today's Picks Section */ 
 /* Style for the "View All" button inside Today's Picks */
 .todays-picks .view-all-btn {
@@ -434,332 +557,880 @@ footer {
 }
 
 /* Upload Section */
-.upload-container {
+/* Main section wrapper */
+#upload-view {
+    padding: 1.5rem 1rem; 
+    min-height: 100vh; 
     display: flex;
-    gap: 3rem;
-    margin-top: 2rem;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center; 
+    background-color: var(--color-bg-light); 
+    background-image: linear-gradient(to right, #e8ddd3 1px, transparent 1px), 
+                      linear-gradient(to bottom, #e8ddd3 1px, transparent 1px); 
+    background-size: 20px 20px;
+    background-repeat: repeat;
+    /* --- CHANGE FOR VERTICAL SHIFT UP --- */
+    margin-top: -2rem; /* Aggressively pulls the entire section upward */
 }
-.item-details {
-    background: var(--color-card-bg);
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    flex: 2;
-    min-width: 320px;
+
+/* Headings for the section */
+#upload-view h2 { 
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--color-text-dark); 
+    margin-bottom: 0.5rem;
+    text-align: center; 
 }
-.photo-upload {
-    border: 2px dashed var(--color-primary-accent);
+
+#upload-view p:first-of-type { 
+    font-size: 1rem;
+    color: var(--color-text-light); 
+    margin-bottom: 2rem; 
+    text-align: center; 
+}
+
+/* --- Main Container for Left and Right Sections (upload-container) --- */
+.upload-container {
+    display: flex; /* KEY: Enables horizontal layout */
+    gap: 1.5rem; /* Reduced slightly */
+    width: 95%; 
+    max-width: 1100px; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    align-items: flex-start; 
+}
+
+/* --- Left Section: Item Details (WIDER - ~65%) --- */
+.item-details { 
+    flex-grow: 1;
+    /* --- CHANGE FOR HORIZONTAL SIZE SMALLER --- */
+    width: 55%; /* Changed from 65% to make it proportionally smaller */
+    min-width: 400px; 
+    max-width: 550px; /* Confirmed max-width is set lower for narrow look */
+    background: var(--color-card-bg); 
+    padding: 2rem; /* Reverting to ORIGINAL padding */
+    border-radius: 12px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
+}
+
+.item-details h3 { 
+    font-size: 1.5rem;
+    color: var(--color-text-dark);
+    margin-top: 0;
+    margin-bottom: 0.5rem; 
+}
+
+.item-details p:nth-of-type(1) { 
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem; /* Reverting to ORIGINAL margin */
+}
+
+/* --- Item Photo Upload Area --- */
+.item-details label[for="file-input"] { 
+    display: block;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: 0.8rem; 
+}
+
+#image-preview.preview-box { 
+    border: 2px dashed #B0BEC5; 
     border-radius: 12px;
-    padding: 1.5rem;
+    padding: 1.5rem; /* Reverting to ORIGINAL padding */
     text-align: center;
-    margin-bottom: 1rem;
-    background: var(--color-light-peach);
+    margin-bottom: 1rem; 
+    background: var(--color-light-brown); 
+    cursor: pointer; 
+    transition: all 0.2s ease;
 }
-.upload-icon {
+
+#image-preview.preview-box:hover {
+    background-color: #E0E0E0; 
+}
+
+.upload-icon { 
     font-size: 3rem;
-    color: var(--color-primary-accent);
+    color: var(--color-secondary-accent); 
     display: block;
     margin-bottom: 0.5rem;
 }
+
+.placeholder-text { 
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    line-height: 1.4;
+}
+
+/* Styling for the preview box when an image is present */
 .preview-box.has-image {
     border-color: var(--color-secondary-accent);
 }
+
+/* Upload Buttons */
 .upload-buttons {
     display: flex;
     justify-content: space-between;
-    gap: 10px;
+    gap: 1rem; 
+    margin-top: 1.5rem; 
+    margin-bottom: 2rem; 
 }
-.upload-buttons .btn {
-    width: 50%;
-    padding: 10px 15px;
+
+.upload-buttons .btn { 
+    flex: 1; 
+    padding: 0.8rem 1.5rem;
     border-radius: 8px;
     font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.upload-buttons .primary-btn {
+
+.upload-buttons .primary-btn { 
     background: var(--color-primary-accent);
-    color: rgba(255, 255, 255, 0.441);
+    color: white;
+    box-shadow: 0 3px 10px rgba(184, 134, 11, 0.3);
 }
-.upload-buttons .secondary-btn {
+.upload-buttons .secondary-btn { 
     background: var(--color-secondary-accent);
     color: white;
-}
-.photo-tips h3 {
-    color: var(--color-secondary-accent);
+    box-shadow: 0 3px 10px rgba(141, 110, 99, 0.3);
 }
 
-/* Closet Section */
-.closet-stats {
-    display: flex;
-    gap: 3rem;
-    margin: 2rem 0;
-    justify-content: flex-start;
+.upload-buttons .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
-.closet-items {
+
+
+/* --- Item Type & Primary Color Dropdowns --- */
+.item-selection-row {
     display: flex;
     gap: 1.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2rem; 
+    flex-wrap: wrap; 
+}
+
+.item-type-field,
+.primary-color-field {
+    flex: 1;
+    min-width: 180px; 
+}
+
+.item-selection-row label {
+    display: block;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.item-selection-row select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 0.95rem;
+    color: var(--color-text-dark);
+    appearance: none; 
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%2F%2Fwww.w3.org%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23706363%22%20d%3D%22M287%2C197.399L156.4%2C66.799c-3.6-3.6-8-5.4-12.4-5.4s-8.8%2C1.8-12.4%2C5.4L5.4%2C197.399c-7.2%2C7.2-7.2%2C18.8%2C0%2C26.1c7.2%2C7.2%2C18.8%2C7.2%2C26.1%2C0l118.8-118.8l118.8%2C118.8c7.2%2C7.2%2C18.8%2C7.2%2C26.1%2C0C294.2%2C216.199%2C294.2%2C204.599%2C287%2C197.399z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 0.7em top 50%, 0 0;
+    background-size: 0.65em auto, 100%;
+}
+
+
+/* --- Add to Closet Button --- */
+.add-to-closet { 
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1.5rem; 
+    background: var(--color-add-to-closet-brown); 
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 15px var(--color-add-to-closet-shadow); 
+}
+
+.add-to-closet:hover:not(:disabled) { 
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--color-add-to-closet-shadow);
+    background: #7A3F10; 
+}
+
+.add-to-closet:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none; 
+}
+
+
+/* --- Right Section: Photo Tips (NARROWER - ~30%) --- */
+.photo-tips { /* Your existing class for the right box */
+    flex-grow: 1;
+    width: 30%; /* KEY: Explicitly set to be narrow and on the right */
+    min-width: 250px; 
+    max-width: 350px; 
+    background: var(--color-card-bg); 
+    padding: 1.5rem; /* Reverting to ORIGINAL padding */
+    border-radius: 12px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
+}
+
+.photo-tips h3 { 
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-top: 0;
+    margin-bottom: 0.8rem;
+    display: flex; 
+    align-items: center;
+    gap: 0.5rem; 
+}
+
+.photo-tips p { 
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 1.2rem;
+}
+
+.photo-tips ul {
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+}
+
+.photo-tips li {
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.7rem;
+    line-height: 1.4;
+    position: relative;
+    padding-left: 1.5rem; 
+}
+
+.photo-tips li::before {
+    content: '•'; 
+    color: var(--color-secondary-accent); 
+    font-size: 1.2rem;
+    position: absolute;
+    left: 0;
+    top: -2px;
+}
+
+
+/* --- Responsive Adjustments for Upload Section (Original Settings) --- */
+@media (max-width: 860px) { 
+    .upload-container {
+        flex-direction: column; 
+        align-items: center;
+    }
+    .item-details,
+    .photo-tips {
+        width: 90%; 
+        max-width: 500px; 
+    }
+    .item-selection-row {
+        flex-direction: column; 
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #upload-view h2 {
+        font-size: 1.8rem;
+    }
+    #upload-view p:first-of-type {
+        font-size: 0.9rem;
+    }
+    .item-details,
+    .photo-tips {
+        padding: 1.5rem;
+    }
+    .item-details h3 {
+        font-size: 1.3rem;
+    }
+    .photo-tips h3 {
+        font-size: 1.1rem;
+    }
+    /* Adjust photo upload for smaller screens */
+    #image-preview.preview-box {
+        padding: 1rem;
+    }
+    .upload-icon {
+        font-size: 2.5rem;
+    }
+    .placeholder-text {
+        font-size: 0.8rem;
+    }
+    .upload-buttons .btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+    .item-selection-row label,
+    .item-selection-row select {
+        font-size: 0.9rem;
+    }
+    .add-to-closet {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+}
+
+
+/* ========================================================= */
+/* CLOSET SECTION LAYOUT & FILTERS (Using Mocha/Gold Palette) */
+/* ========================================================= */
+
+.closet-stats {
+    display: flex;
+    gap: 30px; 
+    margin-bottom: 30px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-light-brown); /* Uses Light Brown variable */
+}
+
+/* Category Filter Layout */
+.category-filter {
+    display: flex;
     flex-wrap: wrap;
+    gap: 10px;
+    padding: 20px 0;
+    border-top: 1px solid var(--color-light-brown); /* Uses Light Brown variable */
 }
-.add-item-card {
-    background: var(--color-light-peach);
-    border: 2px dashed var(--color-primary-accent);
-    transition: box-shadow 0.2s, transform 0.2s;
+
+.category-filter .filter-btn {
+    padding: 8px 15px;
+    border: 1px solid var(--color-light-brown); /* Uses Light Brown variable */
+    border-radius: 20px;
+    background-color: var(--color-bg-light); /* Lighter background */
+    color: var(--color-text-light);
+    cursor: pointer;
+    transition: all 0.2s;
+    flex-shrink: 0;
+    white-space: nowrap;
 }
-.add-item-card:hover {
-    box-shadow: 0 6px 16px rgba(184,134,11,0.2);
+
+/* Active State: Uses Gold/Primary Accent */
+.category-filter .filter-btn.active,
+.category-filter .filter-btn:hover {
+    background-color: var(--color-primary-accent); 
+    color: white;
+    border-color: var(--color-dark-gold);
+    box-shadow: 0 4px 10px rgba(184, 134, 11, 0.25);
     transform: translateY(-2px);
 }
+/* --- CLOSET GRID VIEW (The Item Cards) --- */
+
+/* The main container for the item cards, styled as a responsive grid */
+.closet-items.items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+    gap: 20px;
+    padding: 20px 0;
+}
+
 .item-card {
-    background: var(--color-card-bg);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
-}
-.item-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-} 
- .item-card {
-    background: var(--color-card-bg);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
-    /* ADDED: Set max-width so the card shrinks to the new image size */
-    max-width: 120px; 
-    text-align: center; /* Center content inside the card */
-    padding: 0.5rem; /* Give it some breathing room, like .pick-card */
+    border: 1px solid var(--color-light-brown);
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    cursor: pointer;
+    background-color: var(--color-card-bg);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
 }
 
 .item-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* --- ADD THIS NEW BLOCK TO SIZE THE IMAGE INSIDE item-card --- */
 .item-card img {
-    width: 100px; /* Forces the image to be small */
-    height: 100px; /* Forces the image to be small */
-    object-fit: cover;
-    border-radius: 6px;
-    margin-bottom: 0.5rem;
+    width: 100%;
+    height: 180px; 
+    object-fit: cover; 
     display: block;
 }
-/* --- END NEW BLOCK --- */
 
-/* Closet Section - Category Filter Buttons */
-/* Closet Section - Category Filter Buttons */
-.category-filter {
-    display: flex;             /* Arrange children horizontally */
-    flex-wrap: wrap;           /* Wrap to next line on smaller screens */
-    gap: 1rem;                 /* Space between buttons */
-    margin-top: 1.5rem;        /* Space from the closet items */
-    width: 100%;
+.item-card div {
+    padding: 10px 5px;
+    font-size: 0.9em;
+    line-height: 1.2;
 }
 
-.filter-btn {
-    background: var(--color-light-brown);
+.item-card span {
+    color: var(--color-text-light);
+    font-size: 0.85em;
+    display: block;
+}
+
+/* Styling for the Add New Item Card */
+.add-item-card {
+    /* Uses a dashed line with your secondary (Mocha) accent */
+    border: 2px dashed var(--color-secondary-accent); 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 210px; 
+    background-color: var(--color-light-brown); 
+    box-shadow: none;
     color: var(--color-secondary-accent);
-    padding: 0.5rem 1rem;      /* Comfortable button padding */
-    border-radius: 20px;       /* Rounded pill shape */
-    font-size: 0.95rem;
-    font-weight: 500;
+} 
+/* --- ITEM DETAIL VIEW --- */
+#item-detail-view {
+    padding: 20px;
+}
+
+.item-detail-content {
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.detail-image-wrapper {
+    flex: 0 0 45%; 
+    max-width: 400px;
+}
+
+#item-detail-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.detail-info {
+    flex: 1;
+}
+
+#item-detail-name {
+    font-size: 2.5em;
+    margin-top: 0;
+    color: var(--color-text-dark);
+}
+
+.category-tag {
+    font-size: 1.1em;
+    color: var(--color-secondary-accent); /* Using Mocha for category highlight */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.detail-description {
+    line-height: 1.6;
+    color: var(--color-text-light);
+    margin-bottom: 30px;
+}
+
+/* Action Buttons in Detail View */
+.action-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
     cursor: pointer;
-    flex-shrink: 0;            /* Prevent buttons from shrinking too much */
-    transition: all 0.2s ease; /* Smooth hover transition */
-    border: none;              /* Remove default border */
+    font-weight: bold;
+    margin-right: 10px;
 }
 
-.filter-btn.active,
-.filter-btn:hover {
-    background: var(--color-primary-accent); /* Highlighted background */
-    color: #fff;                             /* White text */
-    box-shadow: 0 2px 10px rgba(184,134,11,0.3); /* Subtle shadow */
+.btn-primary { /* Suggest Outfit */
+    background-color: var(--color-primary-accent);
+    color: white;
 }
 
-.filter-btn.active,
-.filter-btn:hover {
-    background: var(--color-primary-accent);
-    color: #fff;
-    box-shadow: 0 2px 10px rgba(184,134,11,0.3);
+.btn-secondary { /* Edit Item */
+    background-color: var(--color-light-brown);
+    color: var(--color-text-dark);
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    color: var(--color-secondary-accent);
+    font-size: 1em;
+    cursor: pointer;
+    padding: 5px 0;
+    margin-bottom: 20px;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.back-btn:hover {
+    color: var(--color-dark-mocha);
+}
+
+/* Detail View Responsiveness */
+@media (max-width: 768px) {
+    .item-detail-content {
+        flex-direction: column;
+    }
+
+    .detail-image-wrapper {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
 }
 
 /* AI Recommendations Section */
-/* AI Recommendations Section */
+/* AI Recommendations Section */  
+
+
+:root {
+    --color-page-bg: #fdfaf7; /* Very light cream for the AI section */
+    --color-page-border: #e8ddd3; /* Soft dashed border tone */
+
+    --color-light-cream-card: #fefdfb; /* For all card/panel backgrounds */
+    --color-golden-border: #D4AF37; /* Vibrant gold accent for borders */
+
+    /* === TEXT & TYPOGRAPHY === */
+    --color-ai-heading-text: #5D4037; /* Deep brown (AI section main heading) */
+    --color-ai-description-text: #8D6E63; /* Softer mocha for the subheading */
+
+    /* ✅ Updated colors for "Casual Chic" */
+    --color-casual-chic-heading: #8B4513; /* Warm, rich brown for title */
+    --color-casual-chic-description: #A67B5B; /* Soft brown for subtitle */
+
+    /* === MATCH BADGE COLORS === */
+    --color-match-gold-gradient-start: #A8790A;
+    --color-match-gold-gradient-end: #B8860B;
+    --color-match-gold-shadow-rgb: 168,121,10;
+
+    /* === SIDE PANEL ELEMENTS === */
+    --color-side-panel-heading: #6D4C41;
+    --color-side-button-text: #5D4037;
+    --color-side-button-border: #E8DDCE;
+    --color-next-suggestion-bg: #6D4C41;
+    --color-next-suggestion-text: #FFFFFF;
+
+    /* === STYLE TIP BOX === */
+    --color-style-tip-background: #F5DEB3;
+    --color-style-tip-text: #5D4037;
+    --color-style-tip-border-color: var(--color-golden-border);
+
+    /* === STRUCTURAL VARIABLE === */
+    --navbar-height: 60px;
+}
+
+body {
+    background-color: var(--color-page-bg);
+    font-family: 'Arial', sans-serif;
+    color: var(--color-deep-brown);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-image: linear-gradient(to right, var(--color-page-border) 1px, transparent 1px),
+                      linear-gradient(to bottom, var(--color-page-border) 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-repeat: repeat;
+}
+/* AI RECOMMENDATIONS SECTION (Main Layout & Structure) */
+/* ====================================================================== */
+#ai-view {
+    padding: 1rem 0;
+    min-height: calc(100vh - var(--navbar-height));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* --- AI Header Box --- */
+.ai-header-box h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-ai-heading-text);
+    margin: 0;
+}
+.ai-header-box p {
+    font-size: 0.9rem;
+    color: var(--color-ai-description-text);
+    margin: 0.1rem 0 0;
+}
+
+/* --- Main Recommendation Container --- */
 .ai-recommend-container {
     display: flex;
-    gap: 2rem;
-    margin-top: 2rem;
+    gap: 1.5rem;
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
     flex-wrap: wrap;
+    align-items: flex-start;
+    flex-grow: 1;
 }
 
-/* --- Main and Side Panel Structure --- */
+/* ====================================================================== */
+/* MAIN RECOMMENDATION PANEL (.ai-main) */
+/* ====================================================================== */
 .ai-main {
     flex: 2;
-    min-width: 320px;
-    background: var(--color-card-bg);
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Stronger shadow for the main feature */
+    min-width: 450px;
+    padding: 1.5rem 2.5rem;
+    background: var(--color-light-cream-card);
+    border-radius: 25px;
+    border: 2px solid var(--color-golden-border);
+    box-shadow: 0 0 0 1px var(--color-golden-border),
+                0 10px 30px rgba(0, 0, 0, 0.1);
 }
+
+/* ✅ Fixed "Casual Chic" text color */
+.outfit-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--color-casual-chic-heading) !important;
+    font-size: 2.1rem;
+    font-weight: 900;
+    margin-top: 0;
+    margin-bottom: 0.2rem;
+}
+
+/* ✅ Fixed description color below "Casual Chic" */
+.outfit-title + p {
+    margin-top: -0.2rem !important;
+    color: var(--color-casual-chic-description) !important;
+    font-size: 0.95rem;
+    padding-bottom: 1.2rem;
+}
+
+/* Match Percent Badge */
+.match-percent {
+    background: linear-gradient(90deg, var(--color-match-gold-gradient-start) 0%, var(--color-match-gold-gradient-end) 100%);
+    color: white;
+    font-size: 1.0rem;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(var(--color-match-gold-shadow-rgb), 0.5);
+}
+
+/* --- Outfit Display --- */
+.ai-outfit-row {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 0.8rem 0 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+.ai-outfit-card {
+    text-align: center;
+    padding: 1rem;
+    border-radius: 15px;
+    background: white;
+    border: 1px solid var(--color-light-brown-pastel);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+.ai-outfit-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.ai-outfit-card img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 0.4rem;
+    border: 2px solid white;
+}
+.ai-outfit-card div {
+    color: var(--color-deep-brown);
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+.ai-outfit-card span {
+    color: var(--color-mid-brown);
+    font-size: 0.8rem;
+    display: block;
+    margin-top: 0.2rem;
+}
+
+/* --- Action Buttons --- */
+.ai-main-bottom-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed var(--color-light-brown-pastel);
+}
+.ai-main-bottom-actions .btn {
+    flex: 1;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+.ai-main-bottom-actions .main-pass-btn {
+    background: white;
+    color: var(--color-deep-brown);
+    border: 2px solid var(--color-light-brown-pastel);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+.ai-main-bottom-actions .main-pass-btn:hover {
+    background: var(--color-light-brown-pastel);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+}
+.ai-main-bottom-actions .main-love-btn {
+    background: linear-gradient(90deg, var(--color-match-gold-gradient-start) 0%, var(--color-match-gold-gradient-end) 100%);
+    color: white;
+    border: none;
+    box-shadow: 0 5px 15px rgba(var(--color-match-gold-shadow-rgb), 0.5);
+}
+.ai-main-bottom-actions .main-love-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(var(--color-match-gold-shadow-rgb), 0.7);
+}
+
+/* ====================================================================== */
+/* SIDE PANEL (.ai-side) */
+/* ====================================================================== */
 .ai-side {
     flex: 1;
     min-width: 250px;
-    background: var(--color-card-bg);
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding: 1.5rem;
+    background: var(--color-light-cream-card);
+    border-radius: 25px;
+    border: 2px solid var(--color-golden-border);
+    box-shadow: 0 0 0 1px var(--color-golden-border),
+                0 10px 30px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 .ai-side h4 {
-    color: var(--color-secondary-accent);
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--color-light-brown);
-}
-
-/* --- Outfit Title and Match Percentage --- */
-.outfit-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--color-secondary-accent);
-    font-size: 1.8rem;
+    color: var(--color-side-panel-heading);
+    font-size: 1.5rem;
     font-weight: 700;
     margin-top: 0;
-}
-.match-percent {
-    background: var(--color-primary-accent);
-    color: white;
-    font-size: 1rem;
-    font-weight: bold;
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    box-shadow: 0 2px 8px rgba(184,134,11,0.3);
-}
-
-/* --- Outfit Display Row --- */
-.ai-outfit-row {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin: 2rem 0;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--color-light-brown);
-}
-.ai-outfit-card {
-    text-align: center;
-    padding: 1rem;
-    border-radius: 12px;
-    background: var(--color-light-brown);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease;
-}
-.ai-outfit-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-}
-.ai-outfit-card img {
-    width: 150px; /* Larger image size for main recommendation */
-    height: 150px;
-    object-fit: cover;
-    border-radius: 8px;
     margin-bottom: 0.5rem;
-    border: 3px solid var(--color-card-bg); /* Little highlight frame */
 }
-.ai-outfit-card span {
-    color: var(--color-text-light);
-    font-size: 0.9rem;
-}
-
-/* --- Detail Row (Occasion/Weather) --- */
-.ai-details-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--color-light-brown);
-    margin-bottom: 1rem;
-}
-.ai-details-row .detail-value {
-    margin-left: auto;
-    font-weight: 500;
-    color: var(--color-primary-accent);
-}
-
-/* --- Action Buttons (Bottom of Main) --- */
-.ai-actions-row-bottom {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-top: 2rem;
-}
-.ai-actions-row-bottom .btn {
-    flex: 1;
-    padding: 0.8rem;
-    border-radius: 25px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    transition: all 0.2s ease;
-}
-
-/* Love Button Styles */
-.ai-actions-row-bottom .love-btn,
-.ai-side .side-love-btn {
-    background: linear-gradient(90deg, var(--color-primary-accent) 0%, var(--color-dark-gold) 100%);
+.ai-decision-box .side-love-btn {
+    background: linear-gradient(90deg, var(--color-match-gold-gradient-start) 0%, var(--color-match-gold-gradient-end) 100%);
     color: white;
-    box-shadow: 0 4px 12px rgba(184,134,11,0.3);
     border: none;
 }
-.ai-actions-row-bottom .love-btn:hover,
-.ai-side .side-love-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 18px rgba(184,134,11,0.4);
+.ai-decision-box .side-pass-btn,
+.ai-decision-box .side-share-btn {
+    background: white;
+    color: var(--color-side-button-text);
+    border: 1px solid var(--color-side-button-border);
+}
+.ai-decision-box .side-next-btn {
+    margin-top: 0.8rem;
+    background: var(--color-next-suggestion-bg);
+    color: var(--color-next-suggestion-text);
+    border: none;
 }
 
-/* Pass/Share Button Styles */
-.ai-actions-row-bottom .pass-btn,
-.ai-side .side-pass-btn,
-.ai-side .side-share-btn {
-    background: var(--color-card-bg);
-    color: var(--color-secondary-accent);
-    border: 2px solid var(--color-secondary-accent);
-}
-.ai-actions-row-bottom .pass-btn:hover,
-.ai-side .side-pass-btn:hover,
-.ai-side .side-share-btn:hover {
-    transform: translateY(-3px);
-    background: var(--color-light-brown);
-}
-
-/* Next Suggestion Button (Side) */
-.ai-side .next-btn-side {
-    background: linear-gradient(90deg, var(--color-secondary-accent) 0%, var(--color-primary-accent) 100%);
-    color: white;
-    margin-top: 1rem;
-}
-
-/* Style Tip Box */
+/* --- Style Tip Box --- */
 .style-tip {
-    background: linear-gradient(135deg, var(--color-light-peach), var(--color-light-brown));
-    padding: 1rem;
-    border-radius: 10px;
-    margin-top: auto; /* Pushes the tip to the bottom of the side panel */
-    color: var(--color-text-dark);
-    border: 1px solid rgba(184, 134, 11, 0.1);
+    background: var(--color-style-tip-background);
+    padding: 1.2rem;
+    border-radius: 18px;
+    margin-top: auto;
+    color: var(--color-style-tip-text);
+    border: 1px solid var(--color-style-tip-border-color);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+.style-tip strong {
+    color: var(--color-style-tip-text);
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 0.4rem;
 }
 
-/* Media Query Adjustment for small screens */
-@media (max-width: 600px) {
+/* ====================================================================== */
+/* RESPONSIVENESS */
+/* ====================================================================== */
+@media (max-width: 992px) {
+    .ai-recommend-container {
+        flex-direction: column;
+        align-items: center;
+        width: 95%;
+    }
+    .ai-main, .ai-side {
+        width: 100%;
+        min-width: unset;
+        max-width: 600px;
+    }
+    .ai-main-bottom-actions {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    .ai-main-bottom-actions .btn {
+        width: 80%;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+    .ai-header-box h2 {
+        font-size: 1.6rem;
+    }
+    .ai-header-box p {
+        font-size: 0.85rem;
+    }
+    .outfit-title {
+        font-size: 1.8rem;
+    }
     .ai-outfit-row {
         flex-direction: column;
         align-items: center;
-        gap: 1.5rem;
+        gap: 1rem;
     }
 }
 
-/* Responsive */
+@media (max-width: 576px) {
+    .ai-header-box {
+        padding: 0.5rem 1rem;
+        margin: 0.5rem auto 1rem;
+    }
+    .ai-header-box h2 {
+        font-size: 1.4rem;
+    }
+    .ai-header-box p {
+        font-size: 0.8rem;
+    }
+    .ai-main, .ai-side {
+        padding: 1rem;
+    }
+    .outfit-title {
+        font-size: 1.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .match-percent {
+        margin-top: 0.5rem;
+    }
+    .ai-outfit-card img {
+        width: 120px;
+        height: 120px;
+    }
+    .ai-side h4 {
+        font-size: 1.3rem;
+    }
+    .ai-decision-box .btn {
+        font-size: 0.9rem;
+        padding: 0.6rem 0;
+    }
+    .style-tip {
+        font-size: 0.85rem;
+        padding: 0.8rem;
+    }
+}
+
 @media (max-width: 900px) {
     .navbar {
         padding: 1rem 1.5rem;
@@ -1863,4 +2534,4 @@ footer {
     opacity: 0.7;
 }
 
-/* Rest of your existing feature card styles... */
+/* Rest of your existing feature card styles... */  
