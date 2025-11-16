@@ -1575,13 +1575,13 @@ body {
  /* --- NEW AUTH VIEW STYLES (For the Sign In card) --- */
 
 #signin-view {
-  /* This centers the auth card horizontally and vertically */
-  display: flex; 
+  display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 80vh; 
-  padding: 4rem 2rem;
+  padding-top: 60px;   /* your navbar height, adjust if needed */
+  min-height: calc(100vh - 60px);
 }
+
 
 .auth-card {
   /* NOTE: Assuming you have CSS variables defined, e.g., --color-card-bg */
